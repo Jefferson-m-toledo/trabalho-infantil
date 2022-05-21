@@ -2,8 +2,10 @@ from .helpers import colunas_pnadc
 import pandas as pd
 from pathlib import Path
 import os
-from secrets import password, user
+#from secrets import password, user
 from .database import cria_conexao
+user = 'user'
+password = 'password'
 
 
 def _read_dicionario_pnad(file = 'remote_data/dicionario_PNADC_microdados_2019_visita5_20210617.xls'):
@@ -55,7 +57,8 @@ def carrega_pnad():
     :return:
     """
     root = Path(__file__).parents[2]
-    mypath = str(root) + '\\remote_data/'
+    mypath = str(root) + '/remote_data/'
+    print(mypath)
     filenames = next(os.walk(mypath), (None, None, []))[2]
     filenames = [file for file in filenames if file.startswith('PNADC_')]
     # cria conexão

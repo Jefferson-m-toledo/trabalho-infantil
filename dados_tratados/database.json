@@ -1,0 +1,165 @@
+{
+"SELECT B.UF,B.NOUF AS Estado,B.Regiao,SUM(CAST(PESO AS DECIMAL)) AS QUANTIDADE\nFROM tbpnadc as A\nINNER JOIN (SELECT DISTINCT UF,CDUF,NOUF,Regiao FROM tbmunicipios) AS B ON A.CDUF = B.CDUF\nWHERE IDADE < \"018\" \nAND ANO = \"2019\"\nAND (TRABDINHEIRO = \"1\" OR TRABNATURA = \"1\" OR BICO = \"1\" OR TRABSEMRECEBER = \"1\" OR TrabDinheiro5a13 = \"1\" OR TRABNATURA5a13 = \"1\" OR Bico5a13 = \"1\" OR TrabSemReceber5a13 = \"1\")\nGROUP BY B.Regiao,B.UF,B.NOUF\nORDER BY QUANTIDADE DESC": [
+	{
+		"UF" : "SP",
+		"Estado" : "São Paulo",
+		"Regiao" : "Sudeste",
+		"QUANTIDADE" : 281621
+	},
+	{
+		"UF" : "MG",
+		"Estado" : "Minas Gerais",
+		"Regiao" : "Sudeste",
+		"QUANTIDADE" : 230155
+	},
+	{
+		"UF" : "BA",
+		"Estado" : "Bahia",
+		"Regiao" : "Nordeste",
+		"QUANTIDADE" : 124637
+	},
+	{
+		"UF" : "PR",
+		"Estado" : "Paraná",
+		"Regiao" : "Sul",
+		"QUANTIDADE" : 101762
+	},
+	{
+		"UF" : "PA",
+		"Estado" : "Pará",
+		"Regiao" : "Norte",
+		"QUANTIDADE" : 87010
+	},
+	{
+		"UF" : "RS",
+		"Estado" : "Rio Grande do Sul",
+		"Regiao" : "Sul",
+		"QUANTIDADE" : 82039
+	},
+	{
+		"UF" : "SC",
+		"Estado" : "Santa Catarina",
+		"Regiao" : "Sul",
+		"QUANTIDADE" : 59760
+	},
+	{
+		"UF" : "CE",
+		"Estado" : "Ceará",
+		"Regiao" : "Nordeste",
+		"QUANTIDADE" : 58602
+	},
+	{
+		"UF" : "GO",
+		"Estado" : "Goiás",
+		"Regiao" : "Centro-Oeste",
+		"QUANTIDADE" : 58208
+	},
+	{
+		"UF" : "MA",
+		"Estado" : "Maranhão",
+		"Regiao" : "Nordeste",
+		"QUANTIDADE" : 54234
+	},
+	{
+		"UF" : "AM",
+		"Estado" : "Amazonas",
+		"Regiao" : "Norte",
+		"QUANTIDADE" : 48550
+	},
+	{
+		"UF" : "PE",
+		"Estado" : "Pernambuco",
+		"Regiao" : "Nordeste",
+		"QUANTIDADE" : 48016
+	},
+	{
+		"UF" : "MT",
+		"Estado" : "Mato Grosso",
+		"Regiao" : "Centro-Oeste",
+		"QUANTIDADE" : 41124
+	},
+	{
+		"UF" : "ES",
+		"Estado" : "Espírito Santo",
+		"Regiao" : "Sudeste",
+		"QUANTIDADE" : 31241
+	},
+	{
+		"UF" : "RJ",
+		"Estado" : "Rio de Janeiro",
+		"Regiao" : "Sudeste",
+		"QUANTIDADE" : 30676
+	},
+	{
+		"UF" : "MS",
+		"Estado" : "Mato Grosso do Sul",
+		"Regiao" : "Centro-Oeste",
+		"QUANTIDADE" : 27653
+	},
+	{
+		"UF" : "PI",
+		"Estado" : "Piauí",
+		"Regiao" : "Nordeste",
+		"QUANTIDADE" : 26613
+	},
+	{
+		"UF" : "PB",
+		"Estado" : "Paraíba",
+		"Regiao" : "Nordeste",
+		"QUANTIDADE" : 25946
+	},
+	{
+		"UF" : "RO",
+		"Estado" : "Rondônia",
+		"Regiao" : "Norte",
+		"QUANTIDADE" : 19906
+	},
+	{
+		"UF" : "DF",
+		"Estado" : "Distrito Federal",
+		"Regiao" : "Centro-Oeste",
+		"QUANTIDADE" : 17890
+	},
+	{
+		"UF" : "RN",
+		"Estado" : "Rio Grande do Norte",
+		"Regiao" : "Nordeste",
+		"QUANTIDADE" : 17193
+	},
+	{
+		"UF" : "AL",
+		"Estado" : "Alagoas",
+		"Regiao" : "Nordeste",
+		"QUANTIDADE" : 15245
+	},
+	{
+		"UF" : "SE",
+		"Estado" : "Sergipe",
+		"Regiao" : "Nordeste",
+		"QUANTIDADE" : 14736
+	},
+	{
+		"UF" : "TO",
+		"Estado" : "Tocantins",
+		"Regiao" : "Norte",
+		"QUANTIDADE" : 12280
+	},
+	{
+		"UF" : "AC",
+		"Estado" : "Acre",
+		"Regiao" : "Norte",
+		"QUANTIDADE" : 5997
+	},
+	{
+		"UF" : "RR",
+		"Estado" : "Roraima",
+		"Regiao" : "Norte",
+		"QUANTIDADE" : 4139
+	},
+	{
+		"UF" : "AP",
+		"Estado" : "Amapá",
+		"Regiao" : "Norte",
+		"QUANTIDADE" : 3520
+	}
+]}

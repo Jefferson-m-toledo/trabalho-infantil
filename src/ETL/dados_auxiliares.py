@@ -1,8 +1,10 @@
 import pandas as pd
 from .database import cria_conexao
-from secrets import password, user
+#from secrets import password, user
 from pathlib import Path
 import os
+user = 'user'
+password = 'password'
 
 
 def carrega_municipios(arquivo: str = 'remote_data/RELATORIO_DTB_BRASIL_MUNICIPIO.xls'):
