@@ -2,7 +2,7 @@ import mysql.connector
 from pymysql import connect
 from sqlalchemy import create_engine
 
-def create_database(user: str = 'root', password=str):
+def create_database(user: str = 'root', password=str, database='TrabalhoInfantil'):
     """
     Cria database MySql
     :param user: Usuário
@@ -17,11 +17,13 @@ def create_database(user: str = 'root', password=str):
     )
     # cria cursor
     mycursor = mydb.cursor()
-
-    try:
-        mycursor.execute("CREATE DATABASE TrabalhoInfantil")
-    except:
-        raise Exception('Não foi possível criar database')
+    mycursor.execute("SHOW DATABASES")
+    databases = [x[0] for x in mycursor]
+    if database not in databases:
+        try:
+            mycursor.execute(f"CREATE DATABASE {database}")
+        except:
+            print('A database já existe')
 
 
 def cria_conexao(database:str, passwd: str,host:str="127.0.0.1", user:str='root'):
