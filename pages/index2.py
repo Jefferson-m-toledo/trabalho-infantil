@@ -1,6 +1,8 @@
 from dash import Dash, html, dcc, Input, Output, callback
 import dash_bootstrap_components as dbc
+from flask import render_template
 
+app = Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
 
 # criando um grid
 grid = html.Div(
@@ -55,16 +57,16 @@ navbar = dbc.NavbarSimple(
         # dbc.NavItem(dbc.NavLink("Análise por período", href="#"), id="mapa-periodo-link"),
         dbc.DropdownMenu(
             children=[
-                dbc.DropdownMenuItem("Início", href="index", id='index-link'),
+                dbc.DropdownMenuItem("Mais", header=True),
                 dbc.DropdownMenuItem("Mapa Interativo", href="mapa_inte", id='mapa_inte-link'),
-                dbc.DropdownMenuItem("Análise por Região", href="mapa_regiao", id='mapa_regiao-link'),
-                dbc.DropdownMenuItem("Gênero e Tipo de trabalho", href="mapa_trabalho", id='mapa_trabalho-link'),
-                dbc.DropdownMenuItem("Análise por período", href="mapa_periodo", id='mapa_periodo'),
+                dbc.DropdownMenuItem("Análise por Região", href="#", id='mapa-regiao-link'),
+                dbc.DropdownMenuItem("Gênero e Tipo de trabalho", href="#", id='mapa-trabalho-link'),
+                dbc.DropdownMenuItem("Análise por período", href="#", id='mapa-periodo'),
             ],
             nav=True,
             in_navbar=True,
             label="Início",
-            id='drop-down-index'
+            id='drop-down'
 
         ),
     ],
@@ -76,7 +78,7 @@ navbar = dbc.NavbarSimple(
 )
 
 # montagem do layout
-layout = html.Div(
+app.layout = html.Div(
     [
         html.Div(id='index-display-value'),
         # inserindo a navbar
@@ -92,6 +94,10 @@ layout = html.Div(
 
 @callback(
     Output('index-display-value', 'children'),
-    Input('drop-down-index', 'value'))
+    Input('drop-down', 'value'))
 def display_value(value):
     return f'You have selected {value}'
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

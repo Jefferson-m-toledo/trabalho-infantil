@@ -1,23 +1,23 @@
-from dash import Dash, html, dcc, Input, Output, callback
+from dash import Dash, html, dcc, Input, Output
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 import json
 import plotly.graph_objects as go
 
+app = Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
+
 geojson = json.load(open('br_states.json'))
 database = pd.read_csv('database.csv')
-
+#geojson = json.load(open('../br_states.json'))
+#database = pd.read_csv('../database.csv')
 
 estados_opcoes = list(database['UF'].unique())
-estados_opcoes.append("Todos")
-uf_selecionada = 'Todos'
-
 regiao_opcoes = list(database['Regiao'].unique())
+estados_opcoes.append("Todos")
 regiao_opcoes.append("Todas")
+uf_selecionada = 'Todos'
 regiao_selecionada = 'Todas'
-
-
 df_estado = database[database['UF'] == uf_selecionada]
 df_regiao = database[database['Regiao'] == regiao_selecionada]
 
@@ -27,9 +27,8 @@ fig = px.choropleth(database, geojson=geojson,
                     hover_data=['UF'],
                     scope='south america',
                     width=600,
-                    height=600,
+                    height=600
                     )
-
 
 fig2 = go.Figure(data=[go.Table(
     header=dict(values=list(database.columns), ),
@@ -61,24 +60,21 @@ grid = html.Div(
 # inserindo a navbar
 navbar = dbc.NavbarSimple(
     children=[
-        # dbc.NavItem(dbc.NavLink("Início", href="index")),
-        # dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte")),
-        # dbc.NavItem(dbc.NavLink("Análise por Região", href="#")),
-        # dbc.NavItem(dbc.NavLink("Gênero e Tipo de trabalho", href="#")),
-        # dbc.NavItem(dbc.NavLink("Análise por período", href="#")),
-        dbc.DropdownMenu(
-            children=[
-                dbc.DropdownMenuItem("Início", href="index", id='index-link'),
-                dbc.DropdownMenuItem("Mapa Interativo", href="mapa_inte", id='mapa_inte-link'),
-                dbc.DropdownMenuItem("Análise por Região", href="mapa_regiao", id='mapa-regiao-link'),
-                dbc.DropdownMenuItem("Gênero e Tipo de trabalho", href="mapa_trabalho", id='mapa-trabalho-link'),
-                dbc.DropdownMenuItem("Análise por período", href="mapa_periodo", id='mapa_periodo'),
-            ],
-            nav=True,
-            in_navbar=True,
-            label="Mais",
-            id="drop-down-mapa_inte"
-        ),
+        dbc.NavItem(dbc.NavLink("Início", href="index")),
+        dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte")),
+        dbc.NavItem(dbc.NavLink("Análise por Região", href="#")),
+        dbc.NavItem(dbc.NavLink("Gênero e Tipo de trabalho", href="#")),
+        dbc.NavItem(dbc.NavLink("Análise por período", href="#")),
+        # dbc.DropdownMenu(
+        #     children=[
+        #         dbc.DropdownMenuItem("More pages", header=True),
+        #         dbc.DropdownMenuItem("Page 2", href="#"),
+        #         dbc.DropdownMenuItem("Page 3", href="#"),
+        #     ],
+        #     nav=True,
+        #     in_navbar=True,
+        #     label="More",
+        # ),
     ],
     brand="Mapa do Trabalho Infantil no Brasil",
     brand_href="#",
@@ -87,9 +83,8 @@ navbar = dbc.NavbarSimple(
 )
 
 # montagem do layout
-layout = html.Div(
+app.layout = html.Div(
     [
-        html.Div(id='mapa_inte-display-value'),
         # inserindo a navbar
         navbar,
         dbc.Container(
@@ -140,9 +135,6 @@ layout = html.Div(
 #         )])
 #     return fig2
 
-@callback(
-    Output('mapa_inte-display-value', 'children'),
-    Input('drop-down-mapa_inte', 'value'))
-def display_value(value):
-    return f'You have selected {value}'
 
+if __name__ == '__main__':
+    app.run(debug=True)
