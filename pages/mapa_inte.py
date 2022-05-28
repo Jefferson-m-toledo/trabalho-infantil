@@ -1,71 +1,41 @@
-from dash import Dash, html, dcc, Input, Output, callback
-import dash_bootstrap_components as dbc
-import plotly.express as px
+from dash import html, dcc, callback
+from dash.dependencies import Input, Output
+import plotly.graph_objs as go
 import pandas as pd
-import json
-import plotly.graph_objects as go
+import dash_bootstrap_components as dbc
 
-geojson = json.load(open('br_states.json'))
-database = pd.read_csv('database.csv')
+database = pd.read_csv('./dados.csv')
 
+# Create dictionary of list
+database_list = database[['Estado', 'latitude', 'longitude']]
+dict_of_locations = database_list.set_index('Estado')[['latitude', 'longitude']].T.to_dict('dict')
 
-estados_opcoes = list(database['UF'].unique())
-estados_opcoes.append("Todos")
-uf_selecionada = 'Todos'
-
-regiao_opcoes = list(database['Regiao'].unique())
-regiao_opcoes.append("Todas")
-regiao_selecionada = 'Todas'
-
-
-df_estado = database[database['UF'] == uf_selecionada]
-df_regiao = database[database['Regiao'] == regiao_selecionada]
-
-fig = px.choropleth(database, geojson=geojson,
-                    locations='UF',
-                    color='QUANTIDADE',
-                    hover_data=['UF'],
-                    scope='south america',
-                    width=600,
-                    height=600,
-                    )
-
-
-fig2 = go.Figure(data=[go.Table(
-    header=dict(values=list(database.columns), ),
-    cells=dict(values=[database.UF, database.Estado, database.Regiao, database.QUANTIDADE], )
-)])
-
-
-# fig2 = go.Figure(data=[go.Table(
-#     header=dict(values=list(df_estado.columns), ),
-#     cells=dict(values=[df_estado.UF, df_estado.Estado, df_estado.Regiao, df_estado.QUANTIDADE], )
-# )])
 
 # criando um grid
 grid = html.Div(
     [
-        html.H5('Selecione o estado'),
-        dcc.Dropdown(estados_opcoes, value='Todos', id='drop_estados'),
-        html.H5('Selecione a Região'),
-        dcc.Dropdown(regiao_opcoes, value='Todas', id='drop_regiao'),
-        dbc.Row(
-            [
-                dbc.Col(dcc.Graph(id='mapa-interativo', figure=fig), md=6),
-                dbc.Col(dcc.Graph(id='tabela', figure=fig2), md=6)
-            ]
-        )
+        html.Div([
+            html.P('Selecione a Região', className='fix_label', style={'color': 'white'}),
+            dcc.Dropdown(id='w_countries',
+                         multi=False,
+                         searchable=True,
+                         value='Nordeste',
+                         placeholder='Selecione a Região',
+                         options=[{'label': c, 'value': c}
+                                  for c in (database['Regiao'].unique())], className='dcc_compon'),
+
+            html.P('Selecione o Estado', className='fix_label', style={'color': 'white'}),
+            dcc.Dropdown(id='w_countries1',
+                         multi=False,
+                         searchable=True,
+                         placeholder='Selecione o estado',
+                         options=[], className='dcc_compon'),
+        ], className='create_container three columns'),
     ]
 )
-
 # inserindo a navbar
 navbar = dbc.NavbarSimple(
     children=[
-        # dbc.NavItem(dbc.NavLink("Início", href="index")),
-        # dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte")),
-        # dbc.NavItem(dbc.NavLink("Análise por Região", href="#")),
-        # dbc.NavItem(dbc.NavLink("Gênero e Tipo de trabalho", href="#")),
-        # dbc.NavItem(dbc.NavLink("Análise por período", href="#")),
         dbc.DropdownMenu(
             children=[
                 dbc.DropdownMenuItem("Início", href="index", id='index-link'),
@@ -81,7 +51,7 @@ navbar = dbc.NavbarSimple(
         ),
     ],
     brand="Mapa do Trabalho Infantil no Brasil",
-    brand_href="#",
+    brand_href="index",
     color="primary",
     dark=True,
 )
@@ -96,53 +66,89 @@ layout = html.Div(
             [
                 grid
             ]
-        )
+        ),
+        html.Br(),
+        dbc.Container(
+        html.Div([
+            html.Div([
+                dcc.Graph(id='map_chart', config={'displayModeBar': 'hover'})
+
+            ], className='create_container twelve columns')
+
+        ], className='row flex-display'),)
+
     ]
 )
 
-# app.layout = html.Div(children=[
-#     html.H1(children='Mapa Interativo do Trabalho Infantil'),
-#     html.H2(children='Soma dos registro de trabalho infantil por estado'),
-#     html.Div(children=''''Teste'''),
-#
-#     dcc.Dropdown(estados_opcoes, value='Todos', id='drop_estados'),
-#     dcc.Graph(
-#         id='mapa-interativo',
-#         figure=fig
-#
-#     ),
-#
-#     dcc.Graph(
-#         id='tabela',
-#         figure=fig2
-#     )
-#
-# ])
+@callback(Output('map_chart', 'figure'),
+              [Input('w_countries','value')],
+              [Input('w_countries1','value')])
+def update_graph(w_countries, w_countries1):
+    dados8 = database.groupby(['UF','Regiao', 'Estado','latitude', 'longitude'])[['QUANTIDADE']].sum().reset_index()
+    dados9 = dados8[(dados8['Regiao'] == w_countries) &
+                 (dados8['Estado'] == w_countries1)]
+
+    if w_countries1:
+        zoom=3
+        zoom_lat = dict_of_locations[w_countries1]['latitude']
+        zoom_long = dict_of_locations[w_countries1]['longitude']
 
 
-# @app.callback(
-#     Output('tabela', 'figure'),
-#     Input('drop_estados','value')
-#
-# )
-# def update_output(value):
-#     if value == 'Todos':
-#         fig2 = go.Figure(data=[go.Table(
-#             header=dict(values=list(database.columns), ),
-#             cells=dict(
-#                 values=[database.UF, database.Estado, database.Regiao, database.QUANTIDADE], )
-#         )])
-#     else:
-#         fig2 = go.Figure(data=[go.Table(
-#             header=dict(values=list(df_estado.columns), ),
-#             cells=dict(
-#                 values=[df_estado.UF, df_estado.Estado, df_estado.Regiao, df_estado.QUANTIDADE], )
-#         )])
-#     return fig2
+
+    return {
+        'data': [go.Scattermapbox(
+            lon=dados9['longitude'],
+            lat=dados9['latitude'],
+            mode='markers',
+            marker=go.scattermapbox.Marker(size=dados9['QUANTIDADE'],
+                                           color=dados9['QUANTIDADE'],
+                                           colorscale='HSV',
+                                           showscale=False,
+                                           sizemode='area',
+                                           opacity=0.3),
+            hoverinfo='text',
+            hovertext=
+            '<b>UF</b>: ' + dados9['UF'].astype(str) + '<br>' +
+            '<b>Estado</b>: ' + dados9['Estado'].astype(str) + '<br>' +
+            '<b>Região</b>: ' + dados9['Regiao'].astype(str) + '<br>' +
+            '<b>Registros</b>: ' + dados9['QUANTIDADE'].astype(str) + '<br>'
+
+
+        )],
+
+        'layout': go.Layout(
+            hovermode='x',
+            paper_bgcolor='#010915',
+            plot_bgcolor='#010915',
+            margin=dict(r=0, l =0, b = 0, t = 0),
+            mapbox=dict(
+                accesstoken='pk.eyJ1IjoicXM2MjcyNTI3IiwiYSI6ImNraGRuYTF1azAxZmIycWs0cDB1NmY1ZjYifQ.I1VJ3KjeM-S613FLv3mtkw',
+                center = go.layout.mapbox.Center(lat=zoom_lat, lon=zoom_long),
+                style='dark',
+                # style='open-street-map',
+                zoom=zoom,
+            ),
+            autosize=True
+
+        )
+    }
+
+
+@callback(Output('w_countries1', 'options'),
+          [Input('w_countries', 'value')])
+def update_country(w_countries):
+    dados3 = database[database['Regiao'] == w_countries]
+    return [{'label': i, 'value': i} for i in dados3['Estado'].unique()]
+
+
+@callback(Output('w_countries1', 'value'),
+          [Input('w_countries1', 'options')])
+def update_country(w_countries1):
+    return [k['value'] for k in w_countries1][0]
+
 
 @callback(
     Output('mapa_inte-display-value', 'children'),
     Input('drop-down-mapa_inte', 'value'))
 def display_value(value):
     return f'You have selected {value}'
-

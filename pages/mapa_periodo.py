@@ -66,7 +66,7 @@ layout = html.Div(
 
 
 @callback(
-    Output('mapa_trabalho-display-value', 'children'),
+    Output('mapa_periodo-display-value', 'children'),
     Input('drop-down-mapa_periodo', 'value'))
 def display_value(value):
     return f'You have selected {value}'
