@@ -16,12 +16,10 @@ grid = html.Div(
                         Para essas atuações se faz necessário ter informações atualizadas sobre o tema.
                         Quanto mais apresentáveis e facilitadas sejam essas informações, mais viável se torna
                         a possibilidade de apresentação de insights e planos de ação.'''),
-                    html.H5('''O Mapa do Trabalho infantil é aplicação com dados sobre o trabalho infantil no Brasil
-                        com informações atualizadas e consolidadas de forma iterativa ao usuário. A aplicação
-                        está sendo construída com base nos dados abertos do IBGE que serão previamente tratados
-                        e analisados. A apresentação será através de mapas iterativos e dashboards do trabalho
-                        infantil no Brasil através dos dados coletados que serão apresentados nos seguintes
-                        módulos:'''),
+                    html.H5('''O Mapa do Trabalho infantil é uma aplicação com dados infantis no Brasil com
+                    informações atualizadas e consolidadas de forma iterativa ao usuário. A aplicação está
+                    sendo construída com base nos dados abertos do IBGE que será previamente tratada e analisada.
+                    A apresentação dos mapas será realizada por meio de módulos e painéis:'''),
                     html.H5('''- Mapa Interativo: Neste módulo serão apresentados a porcentagem de trabalho infantil
                         por região, onde será possível visualizar os valores totais e percentuais do trabalho
                         infantil por região selecionada.'''),
