@@ -1,6 +1,7 @@
 from ETL import create_database, carrega_municipios, carrega_cnae_domiciliar
 from ETL import carrega_codigo_ocupacao, carrega_pnad
-from secrets import user, password
+user = 'user'
+password = 'password'
 ##
 create_database(user=user, password=password)
 
