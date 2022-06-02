@@ -8,7 +8,7 @@ import json
 
 
 #Carregando Json do arquivo
-geojson = json.load(open('./br_states.json'))
+geojson = json.load(open('./geoBrasil.json'))
 
 #Cria dataframe com os dados
 database = pd.read_csv('./dados.csv')
