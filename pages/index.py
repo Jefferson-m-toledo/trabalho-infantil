@@ -5,10 +5,11 @@ import dash_bootstrap_components as dbc
 # criando um grid
 grid = html.Div(
     [
+
         dbc.Row(
             [
                 html.Div([
-                    html.P(),
+                    html.H3('Apresentação', style={'margin-bottom': '10px', 'color':'white', 'textAlign':'center'}),
                     html.H5('''     A erradicação do trabalho infantil é uma meta globalmente compartilhada.
                         Para isso, é necessário um somatório de atuações decisivas e articuladas entre
                         governos, organizações de trabalhadores e empregadores e a sociedade civil para
@@ -17,9 +18,9 @@ grid = html.Div(
                         Quanto mais apresentáveis e facilitadas sejam essas informações, mais viável se torna
                         a possibilidade de apresentação de insights e planos de ação.'''),
                     html.H5('''O Mapa do Trabalho infantil é uma aplicação com dados infantis no Brasil com
-                    informações atualizadas e consolidadas de forma iterativa ao usuário. A aplicação está
-                    sendo construída com base nos dados abertos do IBGE que será previamente tratada e analisada.
-                    A apresentação dos mapas será realizada por meio de módulos e painéis:'''),
+                    informações atualizadas e consolidadas de forma iterativa ao usuário. A aplicação está sendo
+                    construída com base nos dados abertos do IBGE que será previamente tratada e analisada. A apresentação
+                    dos mapas será realizada por meio de módulos e painéis:'''),
                     html.H5('''- Mapa Interativo: Neste módulo serão apresentados a porcentagem de trabalho infantil
                         por região, onde será possível visualizar os valores totais e percentuais do trabalho
                         infantil por região selecionada.'''),
@@ -36,8 +37,6 @@ grid = html.Div(
 
                 ], style={'textAlign': 'justify'})
 
-                # dbc.Col(dcc.Graph(), md=4),
-                # dbc.Col(dcc.Graph(), md=8)
             ]
         )
     ]
@@ -66,8 +65,10 @@ navbar = dbc.NavbarSimple(
 
         ),
     ],
+    #brand="TESTE - Mapa do Trabalho Infantil no Brasil",
     brand="Mapa do Trabalho Infantil no Brasil",
     brand_href="index",
+    #color="Red",
     color="primary",
     dark=True,
     id="nav-bar"
