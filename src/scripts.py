@@ -19,9 +19,9 @@ from secrets import *
 #carrega_pnad()
 
 # cria tabela por genero/faixa de idade/ atividade
-#cria_tabela_genero_idade_atividade()
-#exporta_csv(tabela='tbsexoidadeatividade', output='dados_tratados/trab_infantil_sexo_idade_atividade.csv')
+cria_tabela_genero_idade_atividade()
+exporta_csv(tabela='tbsexoidadeatividade', output='dados_tratados/trab_infantil_sexo_idade_atividade.csv')
 
 # cria tabela oir uf idade
-cria_tb_uf_atividade_populacao()
-exporta_csv(tabela='tbpopulacaoufidade', output='dados_tratados/populacao_uf_idade.csv')
+#cria_tb_uf_atividade_populacao()
+#exporta_csv(tabela='tbpopulacaoufidade', output='dados_tratados/populacao_uf_idade.csv')

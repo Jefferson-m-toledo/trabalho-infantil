@@ -37,11 +37,15 @@ def cria_tabela_genero_idade_atividade(tb:str='TrabalhoInfantil'):
                                                       (df['CnaeDomicilliar5a13'] == '97000'), 'Servicos Domesticos',
                                                       'Outros')))
     # agrupa por filtros
-    df = df[['Peso', 'Sexo', 'FaixaIdade', 'AtividadeGeral', 'GrupamentoAtividade']]
-    df_gr = df.groupby(['Sexo', 'FaixaIdade', 'AtividadeGeral', 'GrupamentoAtividade'], as_index=False).sum()
+    df = df[['Peso', 'CDUF', 'Sexo', 'FaixaIdade', 'AtividadeGeral', 'GrupamentoAtividade']]
+    df_gr = df.groupby(['CDUF','Sexo', 'FaixaIdade', 'AtividadeGeral', 'GrupamentoAtividade'], as_index=False).sum()
     df_gr = df_gr.rename(columns={'Peso': 'Trabalhadores'})
+    # cria tabela com códigos das ufs
+    df_municipio = pd.read_sql_table('tbmunicipios', con=con)
+    df_uf = df_municipio[['CDUF', 'UF','NOUF']].drop_duplicates()
+    df_gr = df_gr.merge(df_uf, on='CDUF', how='left')
     try:
-        df_gr.to_sql(name='tbsexoidadeatividade', con=con, if_exists='append', index=False)
+        df_gr.to_sql(name='tbsexoidadeatividade', con=con, if_exists='replace', index=False)
     except ValueError:
         print('Falha ao carregar os dados')
 
@@ -76,7 +80,7 @@ def cria_tb_uf_atividade_populacao():
                      (df['Bico5a13'] == '1') |
                      (df['TrabSemReceber5a13'] == '1')]
 
-    df_ocupacao = df[['CDUF', 'Idade', 'CnaeDomiciliar', 'CnaeDomicilliar5a13', 'Peso']]
+    df_ocupacao = df_ocupacao[['CDUF', 'Idade', 'CnaeDomiciliar', 'CnaeDomicilliar5a13', 'Peso']]
     df_ocupacao_14 = df_ocupacao[df_ocupacao['Idade'] > 13].rename(columns={'CnaeDomiciliar': 'CDCnae'}).drop(
         columns=['CnaeDomicilliar5a13'])
     df_ocupacao_5 = df_ocupacao[df_ocupacao['Idade'] <= 13].rename(columns={'CnaeDomicilliar5a13': 'CDCnae'}).drop(
@@ -90,6 +94,6 @@ def cria_tb_uf_atividade_populacao():
     df_concat = df_concat.groupby(['UF', 'AtividadeEconomica', 'Idade'], as_index=False).sum()
     df_return = df_concat.merge(df_populacao, on=['UF', 'Idade'], how='left')
     try:
-        df_return.to_sql(name='tbpopulacaoufidade', con=con, if_exists='append', index=False)
+        df_return.to_sql(name='tbpopulacaoufidade', con=con, if_exists='replace', index=False)
     except ValueError:
         print('Falha ao carregar os dados')
