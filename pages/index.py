@@ -33,10 +33,12 @@ grid = html.Div(
                     html.H5('''- Comparação entre períodos: Módulo no qual será possível realizar a comparação das
                         informações com filtro por período e região. Será apresentado o dashboards de análises
                         temporais dos dados ilustrando a evolução temporal do trabalho infantil do Brasil com
-                        a possibilidade de drill down para outras agregações por região e setor econômico. ''')
+                        a possibilidade de drill down para outras agregações por região e setor econômico.''')
 
                 ], style={'textAlign': 'justify'})
 
+                # dbc.Col(dcc.Graph(), md=4),
+                # dbc.Col(dcc.Graph(), md=8)
             ]
         )
     ]
@@ -45,30 +47,14 @@ grid = html.Div(
 # inserindo a navbar
 navbar = dbc.NavbarSimple(
     children=[
-        # dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
-        # dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
-        # dbc.NavItem(dbc.NavLink("Análise por Região", href="#"), id="mapa-regiao-link"),
-        # dbc.NavItem(dbc.NavLink("Gênero e Tipo de trabalho", href="#"), id="mapa-tipo-link"),
-        # dbc.NavItem(dbc.NavLink("Análise por período", href="#"), id="mapa-periodo-link"),
-        dbc.DropdownMenu(
-            children=[
-                dbc.DropdownMenuItem("Início", href="index", id='index-link'),
-                dbc.DropdownMenuItem("Mapa Interativo", href="mapa_inte", id='mapa_inte-link'),
-                dbc.DropdownMenuItem("Análise por Região", href="mapa_regiao", id='mapa_regiao-link'),
-                dbc.DropdownMenuItem("Gênero e Tipo de trabalho", href="mapa_trabalho", id='mapa_trabalho-link'),
-                dbc.DropdownMenuItem("Análise por período", href="mapa_periodo", id='mapa_periodo'),
-            ],
-            nav=True,
-            in_navbar=True,
-            label="Início",
-            id='drop-down-index'
-
-        ),
+        dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
+        dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
+        dbc.NavItem(dbc.NavLink("Dashboard", href="mapa_regiao"), id="mapa-regiao-link"),
     ],
     #brand="TESTE - Mapa do Trabalho Infantil no Brasil",
     brand="Mapa do Trabalho Infantil no Brasil",
     brand_href="index",
-    #color="Red",
+    #color="#800000",
     color="primary",
     dark=True,
     id="nav-bar"
@@ -91,6 +77,6 @@ layout = html.Div(
 
 @callback(
     Output('index-display-value', 'children'),
-    Input('drop-down-index', 'value'))
+    Input('nav-bar', 'href'))
 def display_value(value):
     return f'You have selected {value}'
