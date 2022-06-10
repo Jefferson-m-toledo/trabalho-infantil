@@ -49,10 +49,11 @@ navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
         dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
-        dbc.NavItem(dbc.NavLink("Dashboard", href="mapa_regiao"), id="mapa-regiao-link"),
+        dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
+        dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
     ],
     #brand="TESTE - Mapa do Trabalho Infantil no Brasil",
-    brand="Mapa do Trabalho Infantil no Brasil",
+    brand="DASHBOARD - Mapa do Trabalho Infantil no Brasil",
     brand_href="index",
     #color="#800000",
     color="primary",

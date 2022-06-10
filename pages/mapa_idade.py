@@ -15,6 +15,9 @@ database_dropdown = pd.DataFrame(database, columns=['UF', 'Estado', 'Regiao'])
 # Importa CSV
 df_idade_atividade = pd.read_csv('populacao_uf_idade.csv')
 
+#Importa CSV Idade, Faixa etária e trabalho
+df_faixa_etaria_atividade = pd.read_csv('trab_infantil_sexo_idade_atividade.csv')
+
 # Cria datafame a partir do CSV apenas com os dados de menores de idade (Idade <= 17)
 dados_idade = df_idade_atividade.loc[df_idade_atividade.Idade <= 17, ['UF', 'Estado', 'AtividadeEconomica', 'Idade', 'Trabalhadores', 'Populacao']]
 
@@ -24,7 +27,7 @@ grid = html.Div(
         html.Div(
             [
                 html.Div([
-                    html.H5('Dashboard',
+                    html.H5('Análise por idade',
                             style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'center'}),
                     dbc.Row([
                         dbc.Col([
@@ -62,9 +65,10 @@ navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
         dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
-        dbc.NavItem(dbc.NavLink("Dashboard", href="mapa_regiao"), id="mapa-regiao-link"),
+        dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
+        dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
     ],
-    brand="Mapa do Trabalho Infantil no Brasil",
+    brand="DASHBOARD - Mapa do Trabalho Infantil no Brasil",
     #brand="TESTE - Mapa do Trabalho Infantil no Brasil",
     brand_href="index",
     color="primary",
@@ -96,17 +100,15 @@ layout = html.Div(
                     html.Div([
 
                         html.Div(id='dados'),
-
                     ])
                 ], className='container'),
                 dbc.Col([
-                    html.H3("Gráfico 2", style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'center'}),
-                    dcc.Graph(id='teste2', config={'displayModeBar': False}, className='dcc_compon',style={'margin-top': '20px', }),
+                    html.Div([
+                        html.Div(id='idade_trabalho'),
+                    ])
                 ])
             ]),
 
-            html.H4("Gráfico 3", style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'center'}),
-            dcc.Graph(id='teste3', config={'displayModeBar': False}, className='dcc_compon', style={'margin-top': '20px', }),
         ])
 
     ], id='mainContainer', style={'display': 'flex', 'flex-direction': 'column'}
@@ -120,39 +122,81 @@ layout = html.Div(
 
 def update_output_div(estado_dropdown):
     df = dados_idade[(dados_idade['Estado'] == estado_dropdown)]
+    #estado = str(df.Estado.unique())
     totalPopulacao = df.Populacao.sum()
     totalOcupados = df.Trabalhadores.sum()
     percentual = ((totalOcupados / totalPopulacao)*100)
+    titulo = ('Total da população entre 5 e 17 anos: ' + str(totalPopulacao) + ' ' + '<br>'+
+        'Total de ocupados entre 5 e 17 anos: ' + str(totalOcupados) + ' ' + '<br>'
+         'Percentual ocupados em relação a população: ' + str(percentual) + ' ' + '<br>')
+
     fig = go.Figure(data=[go.Pie(labels=['População','Ocupados'], values=[totalPopulacao, totalOcupados],pull=[0, 0.2,])])
-    fig.update_layout(margin = dict(t=0, l=0, r=0, b=0), autosize=True, paper_bgcolor='#272b30',plot_bgcolor='#272b30', font_color='white')
+    fig.update_layout(margin = dict(t=20, l=0, r=0, b=0),
+                      autosize=True,
+                      paper_bgcolor='#272b30',
+                      #paper_bgcolor='#272b30',
+                      plot_bgcolor='#272b30',
+                      font_color='white',
+                      title={'text':titulo,
+                            #'x': 0.5,
+                            'y': 0.1},
+                            #'xanchor': 'left',
+                            #'yanchor': 'bottom'},
+                      titlefont={'color': 'white'},
+                      #legend={'x': 1, 'y': -0.8})
+                      )
+
 
 
     return [
-        html.Div([
-        html.Div('Total da população entre 5 e 17 anos: {0:2.4f}'.format(totalPopulacao),style={'color': 'white',
-                                                          'textAlign': 'left',
-                                                          #'margin-top': '0px',
-                                                          'fontSize':'20px'}),
-        html.Div('Ocupados entre 5 e 17 anos: {0:2.4f}'.format(totalOcupados),style={'color': 'white',
-                                                          'textAlign': 'left',
-                                                          #'margin-top': '0px',
-                                                          'fontSize':'20px'}),
-        html.Div('Percentual ocupados em relação a população: {0:0.3f}%'.format(percentual),style={'color': 'white',
-                                                          'textAlign': 'left',
-                                                          #'margin-top': '0px',
-                                                          'fontSize':'20px'}),
-        html.Div(dcc.Graph(figure=fig,config={'displayModeBar': False})),
-        ])
 
-        #html.Span('Latitude: {0:.2f}'.format(lat), style=style),
-        #html.Span('Altitude: {0:0.2f}'.format(alt), style=style)
-    ]
+         html.Div(dcc.Graph(figure=fig,config={'displayModeBar': False}))
+
+     ]
+
+#Callback SCARTER MAP
+@callback(
+    Output('idade_trabalho','children'),
+    Input('estado_dropdown','value')
+)
+
+def update_output_div(estado_dropdown):
+    filtro_estado = df_faixa_etaria_atividade[(df_faixa_etaria_atividade.NOUF == estado_dropdown)]
+    faixa_idade = filtro_estado.groupby(['FaixaIdade'])[['Trabalhadores']].sum().reset_index()
+
+    fig = px.bar(faixa_idade,
+                 x='FaixaIdade',
+                 y='Trabalhadores',
+                 color='FaixaIdade',
+                 #hover_data=['AtividadeEconomica'],
+                 barmode='relative',
+                 )
+    fig.update_layout(margin=dict(t=20, l=0, r=0, b=0),
+                      autosize=True,
+                      paper_bgcolor='#272b30',
+                      # paper_bgcolor='#272b30',
+                      plot_bgcolor='#272b30',
+                      font_color='white',
+                      # title={'text': "Faixa Etária",
+                      #        # 'x': 0.5,
+                      #        'y': 0.1},
+                      # 'xanchor': 'left',
+                      # 'yanchor': 'bottom'},
+                      titlefont={'color': 'white'},
+                      # legend={'x': 1, 'y': -0.8})
+                      )
+
+
+    return [
+
+         html.Div(dcc.Graph(figure=fig,config={'displayModeBar': False}))
+
+     ]
 
 
 
 # Callback Gráfico de barras Idade x Atividade
 @callback(Output('idade_atividade', 'figure'),
-          #[Input('regiao_dropdown', 'value')],
           [Input('estado_dropdown', 'value')])
 def update_graph(estado_dropdown):
     df = dados_idade[(dados_idade['Estado'] == estado_dropdown)]
@@ -161,7 +205,7 @@ def update_graph(estado_dropdown):
                   y='Trabalhadores',
                   color='AtividadeEconomica',
                   hover_data=['AtividadeEconomica'],
-                  barmode='stack',
+                  barmode='relative',
                   )
     fig.update_layout(legend={
                      #'bgcolor':'#1f2c56',
@@ -170,10 +214,9 @@ def update_graph(estado_dropdown):
                     paper_bgcolor='#272b30',
                     plot_bgcolor='#272b30',
                     font_color='white',
-                    title='Idade x Atividade Econômica')
+                    legend_title='Idade x Atividade Econômica')
 
     return fig
-
 # Fim da callback do gráfico de barras
 
 
@@ -194,7 +237,7 @@ def update_country(estado_dropdown):
 
 
 @callback(
-    Output('mapa_regiao-display-value', 'children'),
+    Output('mapa_idade-display-value', 'children'),
     Input('nav-bar', 'href'))
 def display_value(value):
     return f'You have selected {value}'

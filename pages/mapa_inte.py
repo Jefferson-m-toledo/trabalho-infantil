@@ -54,9 +54,10 @@ navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
         dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
-        dbc.NavItem(dbc.NavLink("Dashboard", href="mapa_regiao"), id="mapa-regiao-link"),
+        dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
+        dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
     ],
-    brand="Mapa do Trabalho Infantil no Brasil",
+    brand="DASHBOARD - Mapa do Trabalho Infantil no Brasil",
     #brand="TESTE - Mapa do Trabalho Infantil no Brasil",
     brand_href="index",
     color="primary",
@@ -244,5 +245,6 @@ def update_graph(w_countries, w_countries1):
 @callback(
     Output('mapa_inte-display-value', 'children'),
     Input('nav-bar', 'href'))
+    #Input('drop-down-mapa_inte', 'value'))
 def display_value(value):
     return f'You have selected {value}'

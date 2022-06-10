@@ -1,10 +1,13 @@
 from dash import Dash, dcc, html, Input, Output, callback
-from pages import index, mapa_inte, mapa_regiao, mapa_trabalho
+from pages import index, mapa_inte, mapa_idade, mapa_genero
 import dash_bootstrap_components as dbc
 
 app = Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=[dbc.themes.SLATE])
 server = app.server
 app.title = "Mapa do Trabalho Infantil"
+
+
+
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -19,10 +22,10 @@ def display_page(pathname):
         return index.layout
     elif pathname == '/mapa_inte':
         return mapa_inte.layout
-    elif pathname == '/mapa_regiao':
-        return mapa_regiao.layout
-    elif pathname == '/mapa_trabalho':
-        return mapa_trabalho.layout
+    elif pathname == '/mapa_idade':
+        return mapa_idade.layout
+    elif pathname == '/mapa_genero':
+        return mapa_genero.layout
     else:
         # return '404'
         return index.layout
