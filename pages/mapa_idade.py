@@ -154,7 +154,7 @@ def update_output_div(estado_dropdown):
 
      ]
 
-#Callback SCARTER MAP
+#Callback Gráfico de barras
 @callback(
     Output('idade_trabalho','children'),
     Input('estado_dropdown','value')
@@ -200,13 +200,9 @@ def update_output_div(estado_dropdown):
           [Input('estado_dropdown', 'value')])
 def update_graph(estado_dropdown):
     df = dados_idade[(dados_idade['Estado'] == estado_dropdown)]
-    fig = px.bar(df,
-                  x='Idade',
-                  y='Trabalhadores',
-                  color='AtividadeEconomica',
-                  hover_data=['AtividadeEconomica'],
-                  barmode='relative',
-                  )
+    fig = px.histogram(df, x="Idade", y="Trabalhadores",
+                       color='AtividadeEconomica', barmode='group',
+                       )
     fig.update_layout(legend={
                      #'bgcolor':'#1f2c56',
                      'x': 0.01, 'y':.9,},
