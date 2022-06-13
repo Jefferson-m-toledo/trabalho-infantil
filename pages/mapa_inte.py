@@ -9,7 +9,7 @@ import json
 # Carregando Json do arquivo
 geojson = json.load(open('./geoBrasil.json'))
 
-database = pd.read_csv('./dados.csv')
+database = pd.read_csv('./dados_tratados/database.csv')
 
 options_region = [{'label': 'Todas', 'value': 'Todas', 'label': c, 'value': c} for c in (database['Regiao'].unique())]
 options_region.append({'label': 'Todas', 'value': 'Todas'})
@@ -53,23 +53,27 @@ grid = html.Div(
 navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
+        dbc.NavItem(dbc.NavLink("Saiba Mais", href="saiba_mais"), id="saiba_mais-link"),
         dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
         dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
         dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
     ],
-    brand="DASHBOARD - Mapa do Trabalho Infantil no Brasil",
-    #brand="TESTE - Mapa do Trabalho Infantil no Brasil",
+    brand="Mapa do Trabalho Infantil",
     brand_href="index",
     color="primary",
-    #color="#800000",
     dark=True,
-    id="nav-bar"
+    id="nav-bar",
+    style={'background': 'linear-gradient(145deg, #375ee3 0%, #6543e0 80%)',
+           'boxShadow': '0 1px 2px rgb(0 0 0 / 30%)',
+            'color': 'rgba(255, 255, 255, 0.7)',
+            'fontSize': '16px',
+            'fontWeight': '400'}
 )
 
 # montagem do layout
 layout = html.Div(
     [
-        html.Div(id='mapa_inte-display-value'),
+        html.Div(id='mapa_inte-display-value', style={'display': 'none'}),
         navbar,
         dbc.Container(
             [
@@ -79,8 +83,8 @@ layout = html.Div(
         html.Br(),
         dbc.Container(
             html.Div([
-                    dcc.Graph(id='mapa-interativo', figure=fig, config={'displayModeBar': False}),
-                    dcc.Graph(id='bar_chart', config={'displayModeBar': False})
+                    dcc.Graph(id='mapa-interativo', figure=fig, config={'displayModeBar': False}, style={'marginTop': '15px'}),
+                    dcc.Graph(id='bar_chart', config={'displayModeBar': False}, style={'margin': '50px 0'})
             ], className='row flex-display')
 
         )

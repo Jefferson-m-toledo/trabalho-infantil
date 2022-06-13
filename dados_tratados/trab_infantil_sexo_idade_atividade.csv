@@ -1,0 +1,255 @@
+CDUF,Sexo,FaixaIdade,AtividadeGeral,GrupamentoAtividade,Trabalhadores,UF,NOUF
+11,F,14 a 17,Agricola,Agricultura,334.07667813,RO,Rondônia
+11,F,14 a 17,Nao Agricola,Comercio,390.72231144,RO,Rondônia
+11,F,14 a 17,Nao Agricola,Outros,853.04667597,RO,Rondônia
+11,M,14 a 17,Agricola,Agricultura,1417.18208158,RO,Rondônia
+11,M,14 a 17,Nao Agricola,Comercio,954.7237588200001,RO,Rondônia
+11,M,14 a 17,Nao Agricola,Outros,1670.6882877399999,RO,Rondônia
+11,M,5 a 13,Agricola,Agricultura,382.29961234999996,RO,Rondônia
+11,M,5 a 13,Nao Agricola,Outros,575.70622336,RO,Rondônia
+12,F,14 a 17,Agricola,Agricultura,86.01234032,AC,Acre
+12,F,14 a 17,Nao Agricola,Outros,1167.4371484399999,AC,Acre
+12,F,14 a 17,Nao Agricola,Servicos Domesticos,86.01234032,AC,Acre
+12,F,5 a 13,Nao Agricola,Outros,881.4458994500001,AC,Acre
+12,M,14 a 17,Agricola,Agricultura,226.77348429,AC,Acre
+12,M,14 a 17,Nao Agricola,Comercio,127.5348951,AC,Acre
+12,M,14 a 17,Nao Agricola,Outros,1670.06714092,AC,Acre
+12,M,5 a 13,Agricola,Agricultura,208.34940402,AC,Acre
+12,M,5 a 13,Nao Agricola,Outros,361.55100896,AC,Acre
+13,F,14 a 17,Agricola,Agricultura,2433.55330543,AM,Amazonas
+13,F,14 a 17,Nao Agricola,Comercio,354.39341563,AM,Amazonas
+13,F,14 a 17,Nao Agricola,Outros,3127.0301136099997,AM,Amazonas
+13,F,5 a 13,Agricola,Agricultura,478.8451958,AM,Amazonas
+13,F,5 a 13,Nao Agricola,Outros,526.43862733,AM,Amazonas
+13,F,5 a 13,Nao Agricola,Servicos Domesticos,226.84387417,AM,Amazonas
+13,M,14 a 17,Agricola,Agricultura,6456.1050053,AM,Amazonas
+13,M,14 a 17,Nao Agricola,Comercio,1734.3011973300002,AM,Amazonas
+13,M,14 a 17,Nao Agricola,Outros,5117.03749248,AM,Amazonas
+13,M,5 a 13,Agricola,Agricultura,684.52594856,AM,Amazonas
+14,F,14 a 17,Agricola,Agricultura,58.74160142,RR,Roraima
+14,F,14 a 17,Nao Agricola,Outros,528.4406969,RR,Roraima
+14,F,5 a 13,Nao Agricola,Outros,98.89459488,RR,Roraima
+14,M,14 a 17,Agricola,Agricultura,110.2871189,RR,Roraima
+14,M,14 a 17,Nao Agricola,Comercio,298.78678803,RR,Roraima
+14,M,14 a 17,Nao Agricola,Outros,324.36135416,RR,Roraima
+14,M,5 a 13,Agricola,Agricultura,104.85430551,RR,Roraima
+14,M,5 a 13,Nao Agricola,Comercio,29.56899332,RR,Roraima
+14,M,5 a 13,Nao Agricola,Outros,194.00285098,RR,Roraima
+15,F,14 a 17,Agricola,Agricultura,2262.66757668,PA,Pará
+15,F,14 a 17,Nao Agricola,Comercio,1189.02482357,PA,Pará
+15,F,14 a 17,Nao Agricola,Outros,7229.29885799,PA,Pará
+15,F,14 a 17,Nao Agricola,Servicos Domesticos,1489.26903586,PA,Pará
+15,F,5 a 13,Agricola,Agricultura,593.68653761,PA,Pará
+15,F,5 a 13,Nao Agricola,Comercio,272.80308149,PA,Pará
+15,F,5 a 13,Nao Agricola,Outros,3447.02866768,PA,Pará
+15,M,14 a 17,Agricola,Agricultura,9124.26218887,PA,Pará
+15,M,14 a 17,Nao Agricola,Comercio,2950.68134651,PA,Pará
+15,M,14 a 17,Nao Agricola,Outros,13179.99682389,PA,Pará
+15,M,14 a 17,Nao Agricola,Servicos Domesticos,1797.8578769300002,PA,Pará
+15,M,5 a 13,Agricola,Agricultura,1971.98192286,PA,Pará
+15,M,5 a 13,Nao Agricola,Outros,2025.27926845,PA,Pará
+16,F,14 a 17,Nao Agricola,Comercio,348.11172854,AP,Amapá
+16,F,14 a 17,Nao Agricola,Outros,306.18691835,AP,Amapá
+16,M,14 a 17,Agricola,Agricultura,9.91416524,AP,Amapá
+16,M,14 a 17,Nao Agricola,Comercio,209.85162121,AP,Amapá
+16,M,14 a 17,Nao Agricola,Outros,903.02617695,AP,Amapá
+16,M,5 a 13,Nao Agricola,Outros,169.96949342,AP,Amapá
+17,F,14 a 17,Nao Agricola,Outros,1011.17517253,TO,Tocantins
+17,F,5 a 13,Nao Agricola,Outros,1004.70778358,TO,Tocantins
+17,M,14 a 17,Agricola,Agricultura,222.0678574,TO,Tocantins
+17,M,14 a 17,Nao Agricola,Comercio,1033.83377411,TO,Tocantins
+17,M,14 a 17,Nao Agricola,Outros,1690.33023633,TO,Tocantins
+17,M,5 a 13,Nao Agricola,Outros,1594.64916436,TO,Tocantins
+21,F,14 a 17,Agricola,Agricultura,342.3033482,MA,Maranhão
+21,F,14 a 17,Nao Agricola,Outros,6498.8683071899995,MA,Maranhão
+21,F,14 a 17,Nao Agricola,Servicos Domesticos,58.47311366,MA,Maranhão
+21,F,5 a 13,Nao Agricola,Outros,2675.8007904,MA,Maranhão
+21,F,5 a 13,Nao Agricola,Servicos Domesticos,169.58792872,MA,Maranhão
+21,M,14 a 17,Agricola,Agricultura,1337.47530432,MA,Maranhão
+21,M,14 a 17,Nao Agricola,Comercio,3583.55247458,MA,Maranhão
+21,M,14 a 17,Nao Agricola,Outros,10546.14028281,MA,Maranhão
+21,M,5 a 13,Agricola,Agricultura,302.0137281,MA,Maranhão
+21,M,5 a 13,Nao Agricola,Comercio,472.72480966,MA,Maranhão
+21,M,5 a 13,Nao Agricola,Outros,1661.95762593,MA,Maranhão
+22,F,14 a 17,Agricola,Agricultura,595.24209774,PI,Piauí
+22,F,14 a 17,Nao Agricola,Comercio,671.22282941,PI,Piauí
+22,F,14 a 17,Nao Agricola,Outros,3137.36481463,PI,Piauí
+22,F,5 a 13,Agricola,Agricultura,401.13583252,PI,Piauí
+22,F,5 a 13,Nao Agricola,Outros,634.17510132,PI,Piauí
+22,M,14 a 17,Agricola,Agricultura,996.37793026,PI,Piauí
+22,M,14 a 17,Nao Agricola,Comercio,967.1671247300001,PI,Piauí
+22,M,14 a 17,Nao Agricola,Outros,1324.4328717399999,PI,Piauí
+22,M,5 a 13,Agricola,Agricultura,364.92310469,PI,Piauí
+22,M,5 a 13,Nao Agricola,Outros,882.51316449,PI,Piauí
+23,F,14 a 17,Agricola,Agricultura,472.99847592,CE,Ceará
+23,F,14 a 17,Nao Agricola,Comercio,1723.26619789,CE,Ceará
+23,F,14 a 17,Nao Agricola,Outros,7964.03297999,CE,Ceará
+23,F,5 a 13,Nao Agricola,Outros,3015.61430067,CE,Ceará
+23,F,5 a 13,Nao Agricola,Servicos Domesticos,262.66661809,CE,Ceará
+23,M,14 a 17,Agricola,Agricultura,2449.07118015,CE,Ceará
+23,M,14 a 17,Nao Agricola,Comercio,1047.93009529,CE,Ceará
+23,M,14 a 17,Nao Agricola,Outros,12032.844700419999,CE,Ceará
+23,M,14 a 17,Nao Agricola,Servicos Domesticos,455.84138386,CE,Ceará
+23,M,5 a 13,Agricola,Agricultura,486.37883418,CE,Ceará
+23,M,5 a 13,Nao Agricola,Outros,3694.04293887,CE,Ceará
+23,M,5 a 13,Nao Agricola,Servicos Domesticos,334.13095574,CE,Ceará
+24,F,14 a 17,Nao Agricola,Comercio,556.9346892,RN,Rio Grande do Norte
+24,F,14 a 17,Nao Agricola,Outros,2623.03700325,RN,Rio Grande do Norte
+24,F,5 a 13,Nao Agricola,Servicos Domesticos,84.51009064,RN,Rio Grande do Norte
+24,M,14 a 17,Agricola,Agricultura,556.9346892,RN,Rio Grande do Norte
+24,M,14 a 17,Nao Agricola,Comercio,429.58202874,RN,Rio Grande do Norte
+24,M,14 a 17,Nao Agricola,Outros,3403.3860152800003,RN,Rio Grande do Norte
+24,M,14 a 17,Nao Agricola,Servicos Domesticos,556.9346892,RN,Rio Grande do Norte
+24,M,5 a 13,Nao Agricola,Outros,1216.26455978,RN,Rio Grande do Norte
+25,F,14 a 17,Nao Agricola,Outros,1859.64556263,PB,Paraíba
+25,F,5 a 13,Nao Agricola,Comercio,796.43875865,PB,Paraíba
+25,F,5 a 13,Nao Agricola,Outros,3195.55262302,PB,Paraíba
+25,M,14 a 17,Agricola,Agricultura,406.24654254,PB,Paraíba
+25,M,14 a 17,Nao Agricola,Outros,3676.80055231,PB,Paraíba
+25,M,5 a 13,Nao Agricola,Outros,390.8804093,PB,Paraíba
+26,F,14 a 17,Agricola,Agricultura,109.31870467,PE,Pernambuco
+26,F,14 a 17,Nao Agricola,Comercio,1108.34016679,PE,Pernambuco
+26,F,14 a 17,Nao Agricola,Outros,7113.34683846,PE,Pernambuco
+26,F,14 a 17,Nao Agricola,Servicos Domesticos,109.31870467,PE,Pernambuco
+26,F,5 a 13,Nao Agricola,Outros,3112.35202195,PE,Pernambuco
+26,M,14 a 17,Agricola,Agricultura,4150.30040371,PE,Pernambuco
+26,M,14 a 17,Nao Agricola,Outros,10462.209959,PE,Pernambuco
+26,M,5 a 13,Agricola,Agricultura,1166.74100641,PE,Pernambuco
+26,M,5 a 13,Nao Agricola,Outros,7356.29883194,PE,Pernambuco
+27,F,14 a 17,Agricola,Agricultura,635.43044244,AL,Alagoas
+27,F,14 a 17,Nao Agricola,Comercio,493.57474757,AL,Alagoas
+27,F,14 a 17,Nao Agricola,Outros,1587.14922766,AL,Alagoas
+27,F,14 a 17,Nao Agricola,Servicos Domesticos,300.99680415,AL,Alagoas
+27,F,5 a 13,Nao Agricola,Outros,904.95206339,AL,Alagoas
+27,M,14 a 17,Agricola,Agricultura,612.87721406,AL,Alagoas
+27,M,14 a 17,Nao Agricola,Comercio,860.20103982,AL,Alagoas
+27,M,14 a 17,Nao Agricola,Outros,3487.03597819,AL,Alagoas
+27,M,5 a 13,Nao Agricola,Outros,733.5102827200001,AL,Alagoas
+28,F,14 a 17,Nao Agricola,Comercio,517.2094170600001,SE,Sergipe
+28,F,14 a 17,Nao Agricola,Outros,4818.55442725,SE,Sergipe
+28,F,5 a 13,Nao Agricola,Outros,1631.8960504,SE,Sergipe
+28,M,14 a 17,Agricola,Agricultura,411.23686624,SE,Sergipe
+28,M,14 a 17,Nao Agricola,Comercio,501.62016087999996,SE,Sergipe
+28,M,14 a 17,Nao Agricola,Outros,2276.582679,SE,Sergipe
+28,M,5 a 13,Agricola,Agricultura,465.96932648,SE,Sergipe
+28,M,5 a 13,Nao Agricola,Outros,2491.5297103899998,SE,Sergipe
+29,F,14 a 17,Agricola,Agricultura,5342.75562394,BA,Bahia
+29,F,14 a 17,Nao Agricola,Comercio,1207.54129293,BA,Bahia
+29,F,14 a 17,Nao Agricola,Outros,10564.89394172,BA,Bahia
+29,F,14 a 17,Nao Agricola,Servicos Domesticos,2789.40389206,BA,Bahia
+29,F,5 a 13,Nao Agricola,Outros,9983.63203752,BA,Bahia
+29,M,14 a 17,Agricola,Agricultura,5657.18501697,BA,Bahia
+29,M,14 a 17,Nao Agricola,Comercio,5369.22155122,BA,Bahia
+29,M,14 a 17,Nao Agricola,Outros,29142.560128600002,BA,Bahia
+29,M,5 a 13,Agricola,Agricultura,3954.9959418999997,BA,Bahia
+29,M,5 a 13,Nao Agricola,Comercio,954.2619539099999,BA,Bahia
+29,M,5 a 13,Nao Agricola,Outros,16777.30789737,BA,Bahia
+31,F,14 a 17,Agricola,Agricultura,3263.84390716,MG,Minas Gerais
+31,F,14 a 17,Nao Agricola,Comercio,2224.71440261,MG,Minas Gerais
+31,F,14 a 17,Nao Agricola,Outros,27564.6942094,MG,Minas Gerais
+31,F,14 a 17,Nao Agricola,Servicos Domesticos,3263.84390716,MG,Minas Gerais
+31,F,5 a 13,Agricola,Agricultura,511.78567436,MG,Minas Gerais
+31,F,5 a 13,Nao Agricola,Comercio,878.393562,MG,Minas Gerais
+31,F,5 a 13,Nao Agricola,Outros,8931.21652305,MG,Minas Gerais
+31,M,14 a 17,Agricola,Agricultura,13465.42298772,MG,Minas Gerais
+31,M,14 a 17,Nao Agricola,Comercio,7729.62723056,MG,Minas Gerais
+31,M,14 a 17,Nao Agricola,Outros,46102.76523878,MG,Minas Gerais
+31,M,14 a 17,Nao Agricola,Servicos Domesticos,1590.16444181,MG,Minas Gerais
+31,M,5 a 13,Agricola,Agricultura,239.58642689,MG,Minas Gerais
+31,M,5 a 13,Nao Agricola,Outros,9162.34466149,MG,Minas Gerais
+32,F,14 a 17,Agricola,Agricultura,708.78273485,ES,Espírito Santo
+32,F,14 a 17,Nao Agricola,Comercio,397.57304324999996,ES,Espírito Santo
+32,F,14 a 17,Nao Agricola,Outros,5935.72111505,ES,Espírito Santo
+32,F,14 a 17,Nao Agricola,Servicos Domesticos,344.75095284,ES,Espírito Santo
+32,F,5 a 13,Nao Agricola,Outros,3249.00469377,ES,Espírito Santo
+32,M,14 a 17,Agricola,Agricultura,1624.04865721,ES,Espírito Santo
+32,M,14 a 17,Nao Agricola,Comercio,1503.88401323,ES,Espírito Santo
+32,M,14 a 17,Nao Agricola,Outros,6061.37331853,ES,Espírito Santo
+32,M,5 a 13,Agricola,Agricultura,426.1351134,ES,Espírito Santo
+32,M,5 a 13,Nao Agricola,Outros,880.37430896,ES,Espírito Santo
+33,F,14 a 17,Agricola,Agricultura,75.42336718,RJ,Rio de Janeiro
+33,F,14 a 17,Nao Agricola,Outros,11464.17311647,RJ,Rio de Janeiro
+33,F,14 a 17,Nao Agricola,Servicos Domesticos,75.42336718,RJ,Rio de Janeiro
+33,F,5 a 13,Nao Agricola,Outros,6008.12566887,RJ,Rio de Janeiro
+33,M,14 a 17,Agricola,Agricultura,213.60215675,RJ,Rio de Janeiro
+33,M,14 a 17,Nao Agricola,Comercio,2197.4353532699997,RJ,Rio de Janeiro
+33,M,14 a 17,Nao Agricola,Outros,24346.88001248,RJ,Rio de Janeiro
+33,M,14 a 17,Nao Agricola,Servicos Domesticos,213.60215675,RJ,Rio de Janeiro
+33,M,5 a 13,Nao Agricola,Outros,2056.00595908,RJ,Rio de Janeiro
+35,F,14 a 17,Agricola,Agricultura,1386.21371374,SP,São Paulo
+35,F,14 a 17,Nao Agricola,Comercio,7204.99881663,SP,São Paulo
+35,F,14 a 17,Nao Agricola,Outros,75448.02395427,SP,São Paulo
+35,F,14 a 17,Nao Agricola,Servicos Domesticos,1386.21371374,SP,São Paulo
+35,F,5 a 13,Nao Agricola,Outros,15389.09782672,SP,São Paulo
+35,M,14 a 17,Agricola,Agricultura,4242.80038856,SP,São Paulo
+35,M,14 a 17,Nao Agricola,Comercio,5455.04930254,SP,São Paulo
+35,M,14 a 17,Nao Agricola,Outros,69792.03742766,SP,São Paulo
+35,M,14 a 17,Nao Agricola,Servicos Domesticos,1165.13367522,SP,São Paulo
+35,M,5 a 13,Agricola,Agricultura,382.19267464,SP,São Paulo
+35,M,5 a 13,Nao Agricola,Comercio,2001.3692206800001,SP,São Paulo
+35,M,5 a 13,Nao Agricola,Outros,20339.905720299997,SP,São Paulo
+41,F,14 a 17,Agricola,Agricultura,1066.38971847,PR,Paraná
+41,F,14 a 17,Nao Agricola,Comercio,3921.46409739,PR,Paraná
+41,F,14 a 17,Nao Agricola,Outros,21823.67046754,PR,Paraná
+41,F,14 a 17,Nao Agricola,Servicos Domesticos,436.40791322,PR,Paraná
+41,F,5 a 13,Nao Agricola,Comercio,127.20941579,PR,Paraná
+41,F,5 a 13,Nao Agricola,Outros,6843.30733769,PR,Paraná
+41,M,14 a 17,Agricola,Agricultura,3503.82718247,PR,Paraná
+41,M,14 a 17,Nao Agricola,Comercio,4134.41138069,PR,Paraná
+41,M,14 a 17,Nao Agricola,Outros,20239.86084456,PR,Paraná
+41,M,14 a 17,Nao Agricola,Servicos Domesticos,697.72619831,PR,Paraná
+41,M,5 a 13,Agricola,Agricultura,130.07347036,PR,Paraná
+41,M,5 a 13,Nao Agricola,Outros,9152.48820303,PR,Paraná
+42,F,14 a 17,Nao Agricola,Comercio,1121.94936909,SC,Santa Catarina
+42,F,14 a 17,Nao Agricola,Outros,14484.74835445,SC,Santa Catarina
+42,F,14 a 17,Nao Agricola,Servicos Domesticos,355.83000334999997,SC,Santa Catarina
+42,F,5 a 13,Nao Agricola,Outros,7419.67584756,SC,Santa Catarina
+42,M,14 a 17,Agricola,Agricultura,1560.9115747800001,SC,Santa Catarina
+42,M,14 a 17,Nao Agricola,Comercio,4153.74215961,SC,Santa Catarina
+42,M,14 a 17,Nao Agricola,Outros,13794.33083566,SC,Santa Catarina
+42,M,5 a 13,Nao Agricola,Outros,4813.14601334,SC,Santa Catarina
+43,F,14 a 17,Agricola,Agricultura,2324.92322294,RS,Rio Grande do Sul
+43,F,14 a 17,Nao Agricola,Comercio,2364.0421981199997,RS,Rio Grande do Sul
+43,F,14 a 17,Nao Agricola,Outros,20610.392456,RS,Rio Grande do Sul
+43,F,14 a 17,Nao Agricola,Servicos Domesticos,670.14027581,RS,Rio Grande do Sul
+43,F,5 a 13,Nao Agricola,Outros,8275.589979549999,RS,Rio Grande do Sul
+43,M,14 a 17,Agricola,Agricultura,4683.7765662599995,RS,Rio Grande do Sul
+43,M,14 a 17,Nao Agricola,Comercio,3372.16483668,RS,Rio Grande do Sul
+43,M,14 a 17,Nao Agricola,Outros,18443.152777299998,RS,Rio Grande do Sul
+43,M,5 a 13,Agricola,Agricultura,1221.77742914,RS,Rio Grande do Sul
+43,M,5 a 13,Nao Agricola,Outros,6369.2910399699995,RS,Rio Grande do Sul
+50,F,14 a 17,Agricola,Agricultura,338.10066318,MS,Mato Grosso do Sul
+50,F,14 a 17,Nao Agricola,Comercio,910.19141689,MS,Mato Grosso do Sul
+50,F,14 a 17,Nao Agricola,Outros,4682.94526186,MS,Mato Grosso do Sul
+50,F,14 a 17,Nao Agricola,Servicos Domesticos,338.10066318,MS,Mato Grosso do Sul
+50,F,5 a 13,Nao Agricola,Outros,753.43836579,MS,Mato Grosso do Sul
+50,M,14 a 17,Agricola,Agricultura,136.5192938,MS,Mato Grosso do Sul
+50,M,14 a 17,Nao Agricola,Comercio,1470.97216936,MS,Mato Grosso do Sul
+50,M,14 a 17,Nao Agricola,Outros,4991.85711693,MS,Mato Grosso do Sul
+50,M,5 a 13,Agricola,Agricultura,278.67528687,MS,Mato Grosso do Sul
+50,M,5 a 13,Nao Agricola,Comercio,296.61534876,MS,Mato Grosso do Sul
+50,M,5 a 13,Nao Agricola,Outros,1341.06359036,MS,Mato Grosso do Sul
+51,F,14 a 17,Agricola,Agricultura,1380.87336518,MT,Mato Grosso
+51,F,14 a 17,Nao Agricola,Comercio,768.54707054,MT,Mato Grosso
+51,F,14 a 17,Nao Agricola,Outros,8036.78147836,MT,Mato Grosso
+51,F,14 a 17,Nao Agricola,Servicos Domesticos,765.6547720399999,MT,Mato Grosso
+51,F,5 a 13,Nao Agricola,Outros,3827.3591592800003,MT,Mato Grosso
+51,M,14 a 17,Agricola,Agricultura,1893.86780458,MT,Mato Grosso
+51,M,14 a 17,Nao Agricola,Comercio,3386.57501554,MT,Mato Grosso
+51,M,14 a 17,Nao Agricola,Outros,11701.46903407,MT,Mato Grosso
+51,M,5 a 13,Nao Agricola,Outros,3137.6856141900003,MT,Mato Grosso
+52,F,14 a 17,Nao Agricola,Comercio,1760.1137047,GO,Goiás
+52,F,14 a 17,Nao Agricola,Outros,8639.85028813,GO,Goiás
+52,F,5 a 13,Nao Agricola,Outros,2678.88142269,GO,Goiás
+52,M,14 a 17,Agricola,Agricultura,2061.81079754,GO,Goiás
+52,M,14 a 17,Nao Agricola,Comercio,3404.18033657,GO,Goiás
+52,M,14 a 17,Nao Agricola,Outros,15731.85833162,GO,Goiás
+52,M,5 a 13,Agricola,Agricultura,562.09502312,GO,Goiás
+52,M,5 a 13,Nao Agricola,Outros,1797.51314506,GO,Goiás
+53,F,14 a 17,Agricola,Agricultura,426.31384223,DF,Distrito Federal
+53,F,14 a 17,Nao Agricola,Outros,8376.78037947,DF,Distrito Federal
+53,F,14 a 17,Nao Agricola,Servicos Domesticos,426.31384223,DF,Distrito Federal
+53,F,5 a 13,Nao Agricola,Outros,887.54483244,DF,Distrito Federal
+53,M,14 a 17,Nao Agricola,Comercio,1999.17531113,DF,Distrito Federal
+53,M,14 a 17,Nao Agricola,Outros,5481.02640589,DF,Distrito Federal
+53,M,5 a 13,Nao Agricola,Outros,3319.5772071,DF,Distrito Federal

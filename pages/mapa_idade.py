@@ -7,16 +7,16 @@ import pandas as pd
 import dash_bootstrap_components as dbc
 
 # Cria data frame com o CSV
-database = pd.read_csv('./dados.csv')
+database = pd.read_csv('./dados_tratados/database.csv')
 
 # Cria dataframe com UF, ESTADO e Região para o dropdown
 database_dropdown = pd.DataFrame(database, columns=['UF', 'Estado', 'Regiao'])
 
 # Importa CSV
-df_idade_atividade = pd.read_csv('populacao_uf_idade.csv')
+df_idade_atividade = pd.read_csv('./dados_tratados/populacao_uf_idade.csv')
 
 #Importa CSV Idade, Faixa etária e trabalho
-df_faixa_etaria_atividade = pd.read_csv('trab_infantil_sexo_idade_atividade.csv')
+df_faixa_etaria_atividade = pd.read_csv('./dados_tratados/trab_infantil_sexo_idade_atividade.csv')
 
 # Cria datafame a partir do CSV apenas com os dados de menores de idade (Idade <= 17)
 dados_idade = df_idade_atividade.loc[df_idade_atividade.Idade <= 17, ['UF', 'Estado', 'AtividadeEconomica', 'Idade', 'Trabalhadores', 'Populacao']]
@@ -64,22 +64,27 @@ grid = html.Div(
 navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
+        dbc.NavItem(dbc.NavLink("Saiba Mais", href="saiba_mais"), id="saiba_mais-link"),
         dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
         dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
         dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
     ],
-    brand="DASHBOARD - Mapa do Trabalho Infantil no Brasil",
-    #brand="TESTE - Mapa do Trabalho Infantil no Brasil",
+    brand="Mapa do Trabalho Infantil",
     brand_href="index",
     color="primary",
-    #color="#800000",
     dark=True,
+    id="nav-bar",
+    style={'background': 'linear-gradient(145deg, #375ee3 0%, #6543e0 80%)',
+           'boxShadow': '0 1px 2px rgb(0 0 0 / 30%)',
+           'color': 'rgba(255, 255, 255, 0.7)',
+           'fontSize': '16px',
+           'fontWeight': '400'}
 )
 
 # montagem do layout
 layout = html.Div(
     [
-        html.Div(id='mapa_regiao-display-value'),
+        html.Div(id='mapa_regiao-display-value', style={'display': 'none'}),
         # inserindo a navbar
         navbar,
         dbc.Container(
@@ -90,21 +95,19 @@ layout = html.Div(
         dbc.Container([
             dbc.Row([
                 dbc.Col([
-                    html.P(),
                     html.H4("Relação Idade x Atividade",style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'left'}),
-                    dcc.Graph(id='idade_atividade', className='dcc_compon'),
+                    dcc.Graph(id='idade_atividade', className='dcc_compon', style={'marginBottom': '50px'}),
                 ])
             ]),
             dbc.Row([
                 dbc.Col([
                     html.Div([
-
-                        html.Div(id='dados'),
+                        html.Div(id='dados', style={'marginBottom': '50px'}),
                     ])
                 ], className='container'),
                 dbc.Col([
                     html.Div([
-                        html.Div(id='idade_trabalho'),
+                        html.Div(id='idade_trabalho', style={'marginBottom': '50px'}),
                     ])
                 ])
             ]),

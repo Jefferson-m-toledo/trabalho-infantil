@@ -8,16 +8,16 @@ import dash_bootstrap_components as dbc
 from plotly.subplots import make_subplots
 
 # Cria data frame com o CSV
-database = pd.read_csv('./dados.csv')
+database = pd.read_csv('./dados_tratados/database.csv')
 
 # Cria dataframe com UF, ESTADO e Região para o dropdown
 database_dropdown = pd.DataFrame(database, columns=['UF', 'Estado', 'Regiao'])
 
 # Importa CSV
-df_idade_atividade = pd.read_csv('populacao_uf_idade.csv')
+df_idade_atividade = pd.read_csv('./dados_tratados/populacao_uf_idade.csv')
 
 #Importa CSV Idade, Faixa etária e trabalho
-df_faixa_etaria_atividade = pd.read_csv('trab_infantil_sexo_idade_atividade.csv')
+df_faixa_etaria_atividade = pd.read_csv('./dados_tratados/trab_infantil_sexo_idade_atividade.csv')
 
 # Cria datafame a partir do CSV apenas com os dados de menores de idade (Idade <= 17)
 dados_idade = df_idade_atividade.loc[df_idade_atividade.Idade <= 17, ['UF', 'Estado', 'AtividadeEconomica', 'Idade', 'Trabalhadores', 'Populacao']]
@@ -65,10 +65,11 @@ grid = html.Div(
 navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
+        dbc.NavItem(dbc.NavLink("Saiba Mais", href="saiba_mais"), id="saiba_mais-link"),
         dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
         dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
         dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
-        dbc.NavItem(dbc.NavLink("Análise por período", href="mapa_periodo"), id="mapa-periodo-link"),
+        # dbc.NavItem(dbc.NavLink("Análise por período", href="mapa_periodo"), id="mapa-periodo-link"),
         # dbc.NavItem(dbc.NavLink("Gênero e Tipo de trabalho", href="#"), id="mapa-tipo-link"),
         # dbc.NavItem(dbc.NavLink("Análise por período", href="#"), id="mapa-periodo-link"),
         # dbc.DropdownMenu(
@@ -86,18 +87,22 @@ navbar = dbc.NavbarSimple(
         #
         # ),
     ],
-    brand="DASHBOARD - Mapa do Trabalho Infantil no Brasil",
-    #brand="TESTE - Mapa do Trabalho Infantil no Brasil",
-    #brand_href="index",
+    brand="Mapa do Trabalho Infantil",
+    brand_href="index",
     color="primary",
-    #color="#800000",
     dark=True,
+    id="nav-bar",
+    style={'background': 'linear-gradient(145deg, #375ee3 0%, #6543e0 80%)',
+           'boxShadow': '0 1px 2px rgb(0 0 0 / 30%)',
+           'color': 'rgba(255, 255, 255, 0.7)',
+           'fontSize': '16px',
+           'fontWeight': '400'}
 )
 
 # montagem do layout
 layout = html.Div(
     [
-        html.Div(id='mapa_genero-display-value'),
+        html.Div(id='mapa_genero-display-value', style={'display': 'none'}),
         # inserindo a navbar
         navbar,
         dbc.Container(
@@ -110,14 +115,14 @@ layout = html.Div(
                 dbc.Col([
                     html.P(),
                     #html.H4("Relação Idade x Atividade",style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'left'}),
-                    html.Div(id='genero-atividade'),
+                    html.Div(id='genero-atividade', style={'margin': '35px 0'}),
                 ])
             ]),
             dbc.Row([
                 dbc.Col([
                     html.Div([
 
-                        html.Div(id='genero_grupo_atividade'),
+                        html.Div(id='genero_grupo_atividade', style={'marginBottom': '50px'}),
                         #html.H5('Estado: ' + (dados_idade['Estado'].loc[dados_idade.Estado == 'estado_dropdown'].unique())),
                         #dcc.Graph(id='teste', config={'displayModeBar': False}, className='dcc_compon'),
                     ])

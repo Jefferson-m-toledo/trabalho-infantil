@@ -6,7 +6,7 @@ from secrets import password, user
 from .database import cria_conexao
 
 
-def _read_dicionario_pnad(file = 'remote_data/dicionario_PNADC_microdados_2019_visita5_20210617.xls'):
+def _read_dicionario_pnad(file='remote_data/dicionario_PNADC_microdados_2019_visita5_20210617.xls'):
     """
     Lê dicionário da pnad
     :param file:
@@ -19,20 +19,20 @@ def _read_dicionario_pnad(file = 'remote_data/dicionario_PNADC_microdados_2019_v
     df_dicionario = pd.read_excel(file, skiprows=[0])
     df_dicionario = df_dicionario[df_dicionario['Tamanho'].notna()]
     # cria nome das colunas
-    df_dicionario.columns = ['PosicaoInicial','Tamanho','variavel', 'quesito',
-                             'referencia', 'Categorias','obs','Periodo']
+    df_dicionario.columns = ['PosicaoInicial', 'Tamanho', 'variavel', 'quesito',
+                             'referencia', 'Categorias', 'obs', 'Periodo']
     # seleciona colunas
-    df_dicionario = df_dicionario[['PosicaoInicial','Tamanho','variavel']]
+    df_dicionario = df_dicionario[['PosicaoInicial', 'Tamanho', 'variavel']]
     df_dicionario['Tamanho'] = df_dicionario['Tamanho'].astype(int)
-    #variáveis para exportação
+    # variáveis para exportação
     leng = list(df_dicionario['Tamanho'])
     cols = list(df_dicionario['variavel'])
     return leng, cols
 
 
 def _read_parser_pnadc(file,
-                        colunas_pnadc = colunas_pnadc,
-                       dicionario = 'remote_data/dicionario_PNADC_microdados_2019_visita5_20210617.xls'
+                       colunas_pnadc=colunas_pnadc,
+                       dicionario='remote_data/dicionario_PNADC_microdados_2016_visita5_20210617.xls'
                        ):
     """
     Lê dicionário de dados da pnad e realiza parser nos arquivos txt.
@@ -55,7 +55,7 @@ def carrega_pnad():
     :return:
     """
     root = Path(__file__).parents[2]
-    mypath = str(root) + '\\remote_data/'
+    mypath = str(root) + '/remote_data/'
     filenames = next(os.walk(mypath), (None, None, []))[2]
     filenames = [file for file in filenames if file.startswith('PNADC_')]
     # cria conexão
@@ -68,3 +68,5 @@ def carrega_pnad():
             df.to_sql(name='tbpnadc', con=con, if_exists='append', index=False)
         except ValueError:
             print('Falha ao carregar os dados')
+
+    print('Dados carregados.')
