@@ -14,6 +14,16 @@ database = pd.read_csv('./dados_tratados/database.csv')
 options_region = [{'label': 'Todas', 'value': 'Todas', 'label': c, 'value': c} for c in (database['Regiao'].unique())]
 options_region.append({'label': 'Todas', 'value': 'Todas'})
 
+# Importa CSV
+df_idade_atividade = pd.read_csv('./dados_tratados/populacao_uf_idade.csv')
+
+#Importa CSV Idade, Faixa etária e trabalho
+df_faixa_etaria_atividade = pd.read_csv('./dados_tratados/trab_infantil_sexo_idade_atividade.csv')
+
+# Cria datafame a partir do CSV apenas com os dados de menores de idade (Idade <= 17)
+dados_idade = df_idade_atividade.loc[df_idade_atividade.Idade <= 17, ['UF', 'Estado', 'AtividadeEconomica', 'Idade', 'Trabalhadores', 'Populacao']]
+
+
 fig = px.choropleth_mapbox()
 
 # Create dictionary of list
@@ -87,7 +97,8 @@ layout = html.Div(
                     dcc.Graph(id='bar_chart', config={'displayModeBar': False}, style={'margin': '50px 0'})
             ], className='row flex-display')
 
-        )
+        ),
+        html.Div(id='modal')
 
     ]
 )
@@ -109,12 +120,12 @@ def display_choropleth(w_countries1):
                                    hover_name='Estado',
                                    hover_data=['UF', 'Regiao', 'QUANTIDADE'],
                                    title="Mapa Interativo",
-                                   mapbox_style='carto-darkmatter',
+                                   mapbox_style='white-bg',
                                    center={"lat":zoom_lat,"lon": zoom_long},
                                    zoom=zoom,
-                                   opacity=0.2,
+                                   opacity=0.8,
                                    )
-        fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0},paper_bgcolor='#272b30', plot_bgcolor='#272b30', font_color='white')
+        fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     else:
         fig = px.choropleth_mapbox(df, locations='UF',
@@ -124,12 +135,12 @@ def display_choropleth(w_countries1):
                                    hover_name='Estado',
                                    hover_data=['UF', 'Regiao', 'QUANTIDADE'],
                                    title="Mapa Interativo",
-                                   mapbox_style='carto-darkmatter',
+                                   mapbox_style='white-bg',
                                    center={"lat": -14, "lon": -55},
                                    zoom=3,
                                    opacity=0.8,
                                    )
-        fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0}, paper_bgcolor='#272b30',plot_bgcolor='#272b30', font_color='white')
+        fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     return fig
 
@@ -174,13 +185,13 @@ def update_graph(w_countries, w_countries1):
 
     return {
         'data': [go.Bar(
-            x=dados6['Estado'],
+            x=dados6['UF'],
             y=dados6['QUANTIDADE'],
             text=dados6['QUANTIDADE'],
             texttemplate='%{text:,.0f}',
             textposition='auto',
             name='injured',
-            marker=dict(color='#9C0C38'),
+            marker=dict(color='#1da6f0'),
             hoverinfo='text',
             hovertext=
             '<b>UF</b>: ' + dados6['UF'].astype(str) + '<br>' +
@@ -199,14 +210,14 @@ def update_graph(w_countries, w_countries1):
                    'x': 0.5,
                    'xanchor': 'center',
                    'yanchor': 'top'},
-            titlefont={'color': 'white',
+            titlefont={'color': 'black',
                        'size': 20},
             font=dict(family='sans-serif',
-                      color='white',
+                      color='black',
                       size=12),
             hovermode='closest',
-            paper_bgcolor='#272b30',
-            plot_bgcolor='#272b30',
+            #paper_bgcolor='#272b30',
+            #plot_bgcolor='#272b30',
             legend={'orientation': 'h',
                     'bgcolor': 'white',
                     'xanchor': 'center', 'x': 0.5, 'y': -0.7},
@@ -214,29 +225,29 @@ def update_graph(w_countries, w_countries1):
             xaxis=dict(title='<b>Estados</b>',
                        tick0=0,
                        dtick=1,
-                       color='white',
+                       color='black',
                        showline=True,
                        showgrid=True,
                        showticklabels=True,
-                       linecolor='white',
+                       linecolor='black',
                        linewidth=1,
                        ticks='outside',
                        tickfont=dict(
                            family='Aerial',
-                           color='white',
+                           color='black',
                            size=12
                        )),
             yaxis=dict(title='<b>Quantidade</b>',
-                       color='white',
+                       color='black',
                        showline=True,
                        showgrid=True,
                        showticklabels=True,
-                       linecolor='white',
+                       linecolor='black',
                        linewidth=1,
                        ticks='outside',
                        tickfont=dict(
                            family='Aerial',
-                           color='white',
+                           color='black',
                            size=12
                        )
                        )
@@ -244,6 +255,57 @@ def update_graph(w_countries, w_countries1):
         )
     }
 # Fim da callback do gráfico de barras
+
+#Callback Pop-up
+@callback(
+    Output('modal', 'children'),
+    [Input('mapa-interativo', 'clickData')])
+def display_click_data(clickData):
+
+
+
+    if clickData:
+        uf = clickData['points'][0]['location']
+        df = dados_idade[(dados_idade['UF'] == uf)]
+        totalPopulacao = df.Populacao.sum()
+        text_totalPopulacao = f'{totalPopulacao:_.2f}'
+        text_totalPopulacao = text_totalPopulacao.replace('.', ',').replace('_', '.')
+
+        totalOcupados = df.Trabalhadores.sum()
+        text_totalOcupados = f'{totalOcupados:_.2f}'
+        text_totalOcupados = text_totalOcupados.replace('.', ',').replace('_', '.')
+
+        percentual = (totalOcupados / totalPopulacao)
+        fig = go.Figure(data=[go.Pie(labels=df.AtividadeEconomica, values=df.Trabalhadores)])
+
+        #print(estado)
+
+        return [
+            html.Div(
+                dbc.Modal([
+                    dbc.ModalHeader("Detalhes do Estado"),
+                    dbc.ModalBody(
+                        html.Div([
+                            dbc.Row([
+                                html.Div([
+                                    html.H2(df.Estado.unique(),style={'textAlign': 'center'}),
+                                    html.H6('Total da população entre 5 e 17 anos: ' + str(text_totalPopulacao)),
+                                    html.H6('Total de ocupados entre 5 e 17 anos: ' + str(text_totalOcupados)),
+                                    html.H6('Percentual ocupados em relação a população: ' + str(f'{percentual:.3%}')),
+                                ], className='pretty_container one columns'),
+                            ]),
+                            dbc.Row([
+                                html.Div([
+                                    dcc.Graph(figure=fig)
+
+                                ], className='pretty_container one columns')
+                            ])
+                        ])),
+                    #dbc.ModalFooter(dbc.Button("Close", id="close"))
+                ], is_open=True, size='xl')
+            )
+        ]
+
 
 
 @callback(

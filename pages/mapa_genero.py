@@ -22,6 +22,9 @@ df_faixa_etaria_atividade = pd.read_csv('./dados_tratados/trab_infantil_sexo_ida
 # Cria datafame a partir do CSV apenas com os dados de menores de idade (Idade <= 17)
 dados_idade = df_idade_atividade.loc[df_idade_atividade.Idade <= 17, ['UF', 'Estado', 'AtividadeEconomica', 'Idade', 'Trabalhadores', 'Populacao']]
 
+#Dropdown Gênero
+genero = ["Todos", "Feminino", "Masculino"]
+
 # criando um grid
 grid = html.Div(
     [
@@ -102,7 +105,7 @@ navbar = dbc.NavbarSimple(
 # montagem do layout
 layout = html.Div(
     [
-        html.Div(id='mapa_genero-display-value', style={'display': 'none'}),
+        html.Div(id='mapa_genero-display-value'),
         # inserindo a navbar
         navbar,
         dbc.Container(
@@ -115,25 +118,43 @@ layout = html.Div(
                 dbc.Col([
                     html.P(),
                     #html.H4("Relação Idade x Atividade",style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'left'}),
-                    html.Div(id='genero-atividade', style={'margin': '35px 0'}),
+                    html.Div(id='genero-atividade'),
+                ]),
+                dbc.Col([
+                    html.Div([
+                    html.Div(id='genero_grupo_atividade'),
+
                 ])
             ]),
             dbc.Row([
                 dbc.Col([
-                    html.Div([
-
-                        html.Div(id='genero_grupo_atividade', style={'marginBottom': '50px'}),
+                            html.Div('Selecione o gênero', className='fix_label', style={'color': 'white'}),
+                            dcc.Dropdown(id='genero_dropdown',
+                                         multi=False,
+                                         searchable=True,
+                                         value='F',
+                                         placeholder='Selecione o gênero',
+                                         options=[{'label': 'Feminino', 'value': 'F'},
+                                                  {'label': 'Masculino', 'value': 'M'}], className='dcc_compon'),
                         #html.H5('Estado: ' + (dados_idade['Estado'].loc[dados_idade.Estado == 'estado_dropdown'].unique())),
                         #dcc.Graph(id='teste', config={'displayModeBar': False}, className='dcc_compon'),
                     ])
                 ],),
                 dbc.Col([
                     html.Div([
-                        html.Div(id='genero_trabalho_'),
+                        html.Div(id='genero_trabalho'),
                         # html.H5('Estado: ' + (dados_idade['Estado'].loc[dados_idade.Estado == 'estado_dropdown'].unique())),
                         # dcc.Graph(id='teste', config={'displayModeBar': False}, className='dcc_compon'),
                     ])
-                ])
+                ]),
+                dbc.Col([
+                    html.Div([
+                        html.Div(id='genero_grupo'),
+                        # html.H5('Estado: ' + (dados_idade['Estado'].loc[dados_idade.Estado == 'estado_dropdown'].unique())),
+                        # dcc.Graph(id='teste', config={'displayModeBar': False}, className='dcc_compon'),
+                    ])
+                ]),
+
             ]),
 
             #html.H4("Gráfico 3", style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'center'}),
@@ -143,7 +164,9 @@ layout = html.Div(
     ], id='mainContainer', style={'display': 'flex', 'flex-direction': 'column'}
 )
 
-# #Callback genero atividade
+
+
+#Callback genero Grupo atividade (Agrícoloa / Não Agrícola)
 @callback(
     Output('genero-atividade','children'),
     Input('estado_dropdown','value')
@@ -155,35 +178,18 @@ def update_output_div(estado_dropdown):
     df_feminino = ativ_geral.loc[ativ_geral.Sexo == 'F', ['Sexo', 'AtividadeGeral', 'Trabalhadores']]
     df_masculino = ativ_geral.loc[ativ_geral.Sexo == 'M', ['Sexo', 'AtividadeGeral', 'Trabalhadores']]
 
-    fig = make_subplots(1, 2, specs=[[{'type': 'domain'}, {'type': 'domain'}]],
+    fig = make_subplots(1, 2, specs=[[{'type': 'domain'}, {'type': 'domain'},]],
                         subplot_titles=['Feminino', 'Masculino'])
     fig.add_trace(go.Pie(labels=df_feminino.AtividadeGeral, values=df_feminino.Trabalhadores,
-                         name="Feminino"), 1, 1)
+                         name="Feminino"), 1,1)
     fig.add_trace(go.Pie(labels=df_masculino.AtividadeGeral, values=df_masculino.Trabalhadores,
-                         name="Masculino"), 1, 2)
-
+                         name="Masculino"), 1,2)
     fig.update_layout(title_text='Pessoas de 5 a 17 anos ocupadas por atividade',
                       #autosize=True,
-                      paper_bgcolor='#272b30',
-                      font_color='white',
+                      #paper_bgcolor='#272b30',
+                      #font_color='white',
+
                       )
-    # fig.update_layout(margin = dict(t=20, l=0, r=0, b=0),
-    #                   autosize=True,
-    #                   paper_bgcolor='#272b30',
-    #                   #paper_bgcolor='#272b30',
-    #                   plot_bgcolor='#272b30',
-    #                   font_color='white',
-    #                   #title={'text':titulo,
-    #                         #'x': 0.5,
-    #                         #'y': 0.1},
-    #                         #'xanchor': 'left',
-    #                         #'yanchor': 'bottom'},
-    #                   titlefont={'color': 'white'},
-    #                   #legend={'x': 1, 'y': -0.8})
-    #                   )
-                      #legend_title=['Teste: Total da população entre 5 e 17 anos:  {0:2.4f}'+ str(totalPopulacao), 'Teste 2 Ocupados: ' + str(totalOcupados)])
-
-
     return [
 
          html.Div(dcc.Graph(figure=fig,config={'displayModeBar': False}))
@@ -193,7 +199,8 @@ def update_output_div(estado_dropdown):
 # #Callback genero grupo atividade
 @callback(
     Output('genero_grupo_atividade','children'),
-    Input('estado_dropdown','value')
+    Input('estado_dropdown','value'),
+
 )
 
 def update_output_div(estado_dropdown):
@@ -206,25 +213,12 @@ def update_output_div(estado_dropdown):
 
     fig.update_layout(title_text='Por grupo de atividade',
                       autosize=True,
-                      paper_bgcolor='#272b30',
-                      plot_bgcolor='#272b30',
-                      font_color='white'
+                      # paper_bgcolor='#272b30',
+                      # plot_bgcolor='#272b30',
+                      # font_color='white'
+                      yaxis=dict(title='Nº de Trabalhadores(as)'),
+                      xaxis=dict(title='Grupo da atividade')
                       )
-    # fig.update_layout(margin = dict(t=20, l=0, r=0, b=0),
-    #                   autosize=True,
-    #                   paper_bgcolor='#272b30',
-    #                   #paper_bgcolor='#272b30',
-    #                   plot_bgcolor='#272b30',
-    #                   font_color='white',
-    #                   #title={'text':titulo,
-    #                         #'x': 0.5,
-    #                         #'y': 0.1},
-    #                         #'xanchor': 'left',
-    #                         #'yanchor': 'bottom'},
-    #                   titlefont={'color': 'white'},
-    #                   #legend={'x': 1, 'y': -0.8})
-    #                   )
-                      #legend_title=['Teste: Total da população entre 5 e 17 anos:  {0:2.4f}'+ str(totalPopulacao), 'Teste 2 Ocupados: ' + str(totalOcupados)])
 
 
     return [
@@ -233,120 +227,75 @@ def update_output_div(estado_dropdown):
 
      ]
 
-# # Callback Gráfico de barras Idade x Atividade
-# @callback(Output('idade_atividade', 'figure'),
-#           #[Input('regiao_dropdown', 'value')],
-#           [Input('estado_dropdown', 'value')])
-# def update_graph(estado_dropdown):
-#     #df = dados_idade.loc[dados_idade.UF == 'SP', ['UF', 'Estado', 'AtividadeEconomica', 'Idade', 'Trabalhadores', 'Populacao']]
-#     #df = dados_idade.groupby(['UF', 'Estado','AtividadeEconomica', 'Idade'])[['Trabalhadores','Populacao']].sum()
-#     df = dados_idade[(dados_idade['Estado'] == estado_dropdown)]
-#     fig = px.bar(df,
-#                   x='Idade',
-#                   y='Trabalhadores',
-#                   color='AtividadeEconomica',
-#                   hover_data=['AtividadeEconomica'],
-#                   barmode='relative',
-#                   )
-#     fig.update_layout(legend={
-#                      #'bgcolor':'#1f2c56',
-#                      'x': 0.01, 'y':.9,},
-#                     margin={'t':0, 'l':0, 'r':0, 'b':0},
-#                     paper_bgcolor='#272b30',
-#                     plot_bgcolor='#272b30',
-#                     font_color='white',
-#                     legend_title='Idade x Atividade Econômica')
-#
-#     return fig
 
-    # return {
-    #     'data': [go.Bar(
-    #         x=df['Idade'],
-    #         y=df['Trabalhadores'],
-    #         #base=df['AtividadeEconomica'],
-    #         texttemplate='%{text:,.0f}',
-    #         textposition='auto',
-    #         name='injured',
-    #         marker=df['AtividadeEconomica'],
-    #         #hoverinfo='text',
-    #         #hovertext=
-    #         # '<b>UF</b>: ' + dados6['UF'].astype(str) + '<br>' +
-    #         # '<b>Estado</b>: ' + dados6['Estado'].astype(str) + '<br>' +
-    #         # '<b>Região</b>: ' + dados6['Regiao'].astype(str) + '<br>' +
-    #         # '<b>Quantidade</b>: ' + dados6['QUANTIDADE'].astype(str) + '<br>'
-    #
-    #     ),
-    #
-    #     ],
-    #
-    #     'layout': go.Layout(
-    #         barmode='stack',
-    #         title={'text': 'Quantidade de registro por estado/região:' + '<br>',
-    #                'y': 0.93,
-    #                'x': 0.5,
-    #                'xanchor': 'center',
-    #                'yanchor': 'top'},
-    #         titlefont={'color': 'white',
-    #                    'size': 20},
-    #         font=dict(family='sans-serif',
-    #                   color='white',
-    #                   size=12),
-    #         hovermode='closest',
-    #         paper_bgcolor='#010915',
-    #         plot_bgcolor='#010915',
-    #         legend={'orientation': 'h',
-    #                 'bgcolor': '#010915',
-    #                 'xanchor': 'center', 'x': 0.5, 'y': -0.7},
-    #         margin=dict(r=0),
-    #         xaxis=dict(title='<b>Estados</b>',
-    #                    tick0=0,
-    #                    dtick=1,
-    #                    color='white',
-    #                    showline=True,
-    #                    showgrid=True,
-    #                    showticklabels=True,
-    #                    linecolor='white',
-    #                    linewidth=1,
-    #                    ticks='outside',
-    #                    tickfont=dict(
-    #                        family='Aerial',
-    #                        color='white',
-    #                        size=12
-    #                    )),
-    #         yaxis=dict(title='<b>Quantidade</b>',
-    #                    color='white',
-    #                    showline=True,
-    #                    showgrid=True,
-    #                    showticklabels=True,
-    #                    linecolor='white',
-    #                    linewidth=1,
-    #                    ticks='outside',
-    #                    tickfont=dict(
-    #                        family='Aerial',
-    #                        color='white',
-    #                        size=12
-    #                    )
-    #                    )
-    #
-    #     )
-    # }
-# Fim da callback do gráfico de barras
+#Callback Grupo atividade (Agrícoloa / Não Agrícola) POR GÊNERO
+@callback(
+    Output('genero_trabalho','children'),
+    Input('estado_dropdown','value'),
+    Input('genero_dropdown','value')
+)
+
+def update_output_div(estado_dropdown, genero_dropdown):
+    filtro_estado = df_faixa_etaria_atividade[(df_faixa_etaria_atividade['NOUF'] == estado_dropdown)]  # Dropdown
+    ativ_geral = filtro_estado.groupby(['Sexo','FaixaIdade', 'AtividadeGeral','GrupamentoAtividade'])[['Trabalhadores']].sum().reset_index()
+
+    #Incluir IF para alterar o Sexo
+    df_sexo = ativ_geral.loc[ativ_geral.Sexo == genero_dropdown, ['Sexo', 'FaixaIdade', 'AtividadeGeral','GrupamentoAtividade', 'Trabalhadores']]
+    df_5_13 = df_sexo.loc[df_sexo.FaixaIdade == "5 a 13", ['Sexo', 'FaixaIdade', 'AtividadeGeral', 'Trabalhadores']]
+    df_14_17 = df_sexo.loc[df_sexo.FaixaIdade == "14 a 17", ['Sexo', 'FaixaIdade', 'AtividadeGeral', 'Trabalhadores']]
+
+    fig = make_subplots(1, 2, specs=[[{'type': 'domain'}, {'type': 'domain'}]],
+                        subplot_titles=['5 a 13', '14 a 17'])
+    fig.add_trace(go.Pie(labels=df_5_13.AtividadeGeral, values=df_5_13.Trabalhadores,
+                         name="5 a 13"), 1, 1)
+    fig.add_trace(go.Pie(labels=df_14_17.AtividadeGeral, values=df_14_17.Trabalhadores,
+                         name="14 a 17"), 1, 2)
+
+    fig.update_layout(title_text='Pessoas ocupadas por atividade e faixa etária',
+                      autosize=True,
+                      # paper_bgcolor='#272b30',
+                      # font_color='white',
+                      )
 
 
+    return [
+
+         html.Div(dcc.Graph(figure=fig,config={'displayModeBar': False}))
+
+     ]
+
+# #Callback grupo atividade POR GÊNERO
+@callback(
+    Output('genero_grupo','children'),
+    Input('estado_dropdown','value'),
+    Input('genero_dropdown', 'value')
+
+)
+
+def update_output_div(estado_dropdown, genero_dropdown):
+    filtro_estado = df_faixa_etaria_atividade[(df_faixa_etaria_atividade['NOUF'] == estado_dropdown)]  # Dropdown
+    ativ_geral = filtro_estado.groupby(['Sexo','FaixaIdade','AtividadeGeral','GrupamentoAtividade'])[['Trabalhadores']].sum().reset_index()
+    df_sexo = ativ_geral.loc[ativ_geral.Sexo == genero_dropdown, ['Sexo', 'FaixaIdade', 'AtividadeGeral','GrupamentoAtividade', 'Trabalhadores']]
+
+    fig = px.histogram(df_sexo, x="GrupamentoAtividade", y="Trabalhadores",
+                       color='FaixaIdade', barmode='group',
+                       )
+
+    fig.update_layout(title_text='Por grupo de atividade',
+                      autosize=True,
+                      # paper_bgcolor='#272b30',
+                      # plot_bgcolor='#272b30',
+                      # font_color='white'
+                      yaxis=dict(title='Nº de Trabalhadores(as)'),
+                      xaxis=dict(title='Grupo da atividade')
+                      )
 
 
-# Callback Dropdown
-# @callback(Output('estado_dropdown', 'options'),
-#           [Input('regiao_dropdown', 'value')])
-# def update_country(regiao_dropdown):
-#     dados3 = database[database['Regiao'] == regiao_dropdown]
-#     return [{'label': i, 'value': i} for i in dados3['Estado'].unique()]
-#
-#
-# @callback(Output('estado_dropdown', 'value'),
-#           [Input('estado_dropdown', 'options')])
-# def update_country(estado_dropdown):
-#     return [k['value'] for k in estado_dropdown][0]
+    return [
+
+         html.Div(dcc.Graph(figure=fig,config={'displayModeBar': False}))
+
+     ]
 
 
 @callback(

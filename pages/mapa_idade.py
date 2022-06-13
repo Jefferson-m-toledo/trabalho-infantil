@@ -95,7 +95,7 @@ layout = html.Div(
         dbc.Container([
             dbc.Row([
                 dbc.Col([
-                    html.H4("Relação Idade x Atividade",style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'left'}),
+                    html.H4("Relação Idade x Atividade",style={'margin-bottom': '10px', 'textAlign': 'center'}),
                     dcc.Graph(id='idade_atividade', className='dcc_compon', style={'marginBottom': '50px'}),
                 ])
             ]),
@@ -127,25 +127,31 @@ def update_output_div(estado_dropdown):
     df = dados_idade[(dados_idade['Estado'] == estado_dropdown)]
     #estado = str(df.Estado.unique())
     totalPopulacao = df.Populacao.sum()
+    text_totalPopulacao = f'{totalPopulacao:_.2f}'
+    text_totalPopulacao = text_totalPopulacao.replace('.', ',').replace('_', '.')
+
     totalOcupados = df.Trabalhadores.sum()
-    percentual = ((totalOcupados / totalPopulacao)*100)
-    titulo = ('Total da população entre 5 e 17 anos: ' + str(totalPopulacao) + ' ' + '<br>'+
-        'Total de ocupados entre 5 e 17 anos: ' + str(totalOcupados) + ' ' + '<br>'
-         'Percentual ocupados em relação a população: ' + str(percentual) + ' ' + '<br>')
+    text_totalOcupados = f'{totalOcupados:_.2f}'
+    text_totalOcupados = text_totalOcupados.replace('.', ',').replace('_', '.')
+
+    percentual = (totalOcupados / totalPopulacao)
+    titulo = ('Total da população entre 5 e 17 anos: ' + str(text_totalPopulacao) + ' ' + '<br>'+
+        'Total de ocupados entre 5 e 17 anos: ' + str(text_totalOcupados) + ' ' + '<br>'
+         'Percentual ocupados em relação a população: ' + str(f'{percentual:.3%}') + ' ' + '<br>')
 
     fig = go.Figure(data=[go.Pie(labels=['População','Ocupados'], values=[totalPopulacao, totalOcupados],pull=[0, 0.2,])])
     fig.update_layout(margin = dict(t=20, l=0, r=0, b=0),
                       autosize=True,
-                      paper_bgcolor='#272b30',
                       #paper_bgcolor='#272b30',
-                      plot_bgcolor='#272b30',
-                      font_color='white',
+                      #paper_bgcolor='#272b30',
+                      #plot_bgcolor='#272b30',
+                      #font_color='white',
                       title={'text':titulo,
                             #'x': 0.5,
                             'y': 0.1},
                             #'xanchor': 'left',
                             #'yanchor': 'bottom'},
-                      titlefont={'color': 'white'},
+                      #titlefont={'color': 'white'},
                       #legend={'x': 1, 'y': -0.8})
                       )
 
@@ -176,16 +182,16 @@ def update_output_div(estado_dropdown):
                  )
     fig.update_layout(margin=dict(t=20, l=0, r=0, b=0),
                       autosize=True,
-                      paper_bgcolor='#272b30',
+                      #paper_bgcolor='#272b30',
                       # paper_bgcolor='#272b30',
-                      plot_bgcolor='#272b30',
-                      font_color='white',
-                      # title={'text': "Faixa Etária",
-                      #        # 'x': 0.5,
+                      #plot_bgcolor='#272b30',
+                      #font_color='white',
+                      #title={'text': "Faixa Etária",
+                              # 'x': 0.5,
                       #        'y': 0.1},
                       # 'xanchor': 'left',
                       # 'yanchor': 'bottom'},
-                      titlefont={'color': 'white'},
+                      #titlefont={'color': 'white'},
                       # legend={'x': 1, 'y': -0.8})
                       )
 
@@ -204,16 +210,18 @@ def update_output_div(estado_dropdown):
 def update_graph(estado_dropdown):
     df = dados_idade[(dados_idade['Estado'] == estado_dropdown)]
     fig = px.histogram(df, x="Idade", y="Trabalhadores",
-                       color='AtividadeEconomica', barmode='group',
+                       color='AtividadeEconomica', barmode='group', range_x=[5,17], nbins=13
                        )
     fig.update_layout(legend={
                      #'bgcolor':'#1f2c56',
                      'x': 0.01, 'y':.9,},
                     margin={'t':0, 'l':0, 'r':0, 'b':0},
-                    paper_bgcolor='#272b30',
-                    plot_bgcolor='#272b30',
-                    font_color='white',
-                    legend_title='Idade x Atividade Econômica')
+                    #paper_bgcolor='#272b30',
+                    #plot_bgcolor='#272b30',
+                    #font_color='white',
+                    legend_title='Idade x Atividade Econômica',
+                    yaxis=dict(title='<b>Nº de Trabalhadores</b>')
+    )
 
     return fig
 # Fim da callback do gráfico de barras
