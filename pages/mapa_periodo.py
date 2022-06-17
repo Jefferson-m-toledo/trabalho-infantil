@@ -1,21 +1,51 @@
 from dash import Dash, html, dcc, Input, Output, callback
 import dash_bootstrap_components as dbc
+import pandas as pd
+
+
+# Cria data frame com o CSV
+database = pd.read_csv('./dados_tratados/database.csv')
+
+# Cria dataframe com UF, ESTADO e Região para o dropdown
+database_dropdown = pd.DataFrame(database, columns=['UF', 'Estado', 'Regiao'])
 
 
 # criando um grid
+# criando um grid
 grid = html.Div(
     [
-        dbc.Row(
+        html.Div(
             [
                 html.Div([
-                    html.P(),
-                    html.H2('EM CONSTRUÇÃO'),
+                    html.H5('Análise por idade',
+                            style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'center'}),
+                    dbc.Row([
+                        dbc.Col([
+                            html.Div('Selecione a região', className='fix_label', style={'color': 'white'}),
+                            dcc.Dropdown(id='regiao_dropdown',
+                                         multi=False,
+                                         searchable=True,
+                                         value='Nordeste',
+                                         placeholder='Selecione a Região',
+                                         options=[{'label': c, 'value': c}
+                                                  for c in (database['Regiao'].unique())], className='dcc_compon'),
+                        ]),
 
-                ], style={'textAlign': 'justify'})
+                        dbc.Col([
 
-                # dbc.Col(dcc.Graph(), md=4),
-                # dbc.Col(dcc.Graph(), md=8)
-            ]
+                            html.Div('Selecione o estado', className='fix_label', style={'color': 'white'}),
+                            dcc.Dropdown(id='estado_dropdown',
+                                         multi=False,
+                                         searchable=True,
+                                         placeholder='Selecione o estado',
+                                         options=[], className='dcc_compon'),
+                        ])
+                    ])
+
+
+                ], className='create_container three columns')
+
+            ], className='row flex-display'
         )
     ]
 )
@@ -23,31 +53,23 @@ grid = html.Div(
 # inserindo a navbar
 navbar = dbc.NavbarSimple(
     children=[
-        # dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
-        # dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
-        # dbc.NavItem(dbc.NavLink("Análise por Região", href="#"), id="mapa-regiao-link"),
-        # dbc.NavItem(dbc.NavLink("Gênero e Tipo de trabalho", href="#"), id="mapa-tipo-link"),
-        # dbc.NavItem(dbc.NavLink("Análise por período", href="#"), id="mapa-periodo-link"),
-        dbc.DropdownMenu(
-            children=[
-                dbc.DropdownMenuItem("Início", href="index", id='index-link'),
-                dbc.DropdownMenuItem("Mapa Interativo", href="mapa_inte", id='mapa_inte-link'),
-                dbc.DropdownMenuItem("Análise por Região", href="mapa_regiao", id='mapa-regiao-link'),
-                dbc.DropdownMenuItem("Gênero e Tipo de trabalho", href="mapa_trabalho", id='mapa_trabalho-link'),
-                dbc.DropdownMenuItem("Análise por período", href="mapa_periodo", id='mapa_periodo'),
-            ],
-            nav=True,
-            in_navbar=True,
-            label="Início",
-            id='drop-down-mapa_periodo'
-
-        ),
+        dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
+        dbc.NavItem(dbc.NavLink("Saiba Mais", href="saiba_mais"), id="saiba_mais-link"),
+        dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
+        dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
+        dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
+        dbc.NavItem(dbc.NavLink("Comparação entre Períodos", href="mapa_periodo"), id="mapa-periodo-link"),
     ],
-    brand="Mapa do Trabalho Infantil no Brasil",
+    brand="Mapa do Trabalho Infantil",
     brand_href="index",
     color="primary",
     dark=True,
-    id="nav-bar"
+    id="nav-bar",
+    style={'background': 'linear-gradient(145deg, #375ee3 0%, #6543e0 80%)',
+           'boxShadow': '0 1px 2px rgb(0 0 0 / 30%)',
+            'color': 'rgba(255, 255, 255, 0.7)',
+            'fontSize': '16px',
+            'fontWeight': '400'}
 )
 
 # montagem do layout

@@ -72,6 +72,7 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
         dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
         dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
+        dbc.NavItem(dbc.NavLink("Comparação entre Períodos", href="mapa_periodo"), id="mapa-periodo-link"),
         # dbc.NavItem(dbc.NavLink("Análise por período", href="mapa_periodo"), id="mapa-periodo-link"),
         # dbc.NavItem(dbc.NavLink("Gênero e Tipo de trabalho", href="#"), id="mapa-tipo-link"),
         # dbc.NavItem(dbc.NavLink("Análise por período", href="#"), id="mapa-periodo-link"),

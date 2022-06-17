@@ -68,6 +68,7 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
         dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
         dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
+        dbc.NavItem(dbc.NavLink("Comparação entre Períodos", href="mapa_periodo"), id="mapa-periodo-link"),
     ],
     brand="Mapa do Trabalho Infantil",
     brand_href="index",
@@ -95,7 +96,7 @@ layout = html.Div(
         dbc.Container([
             dbc.Row([
                 dbc.Col([
-                    html.H4("Relação Idade x Atividade",style={'margin-bottom': '10px', 'textAlign': 'center'}),
+                    #html.H4("Relação Idade x Atividade",style={'margin-bottom': '10px', 'textAlign': 'center'}),
                     dcc.Graph(id='idade_atividade', className='dcc_compon', style={'marginBottom': '50px'}),
                 ])
             ]),

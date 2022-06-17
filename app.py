@@ -1,5 +1,5 @@
 from dash import Dash, dcc, html, Input, Output, callback
-from pages import index, saiba_mais, mapa_inte, mapa_idade, mapa_genero
+from pages import index, saiba_mais, mapa_inte, mapa_idade, mapa_genero, mapa_periodo
 import dash_bootstrap_components as dbc
 
 app = Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=[dbc.themes.ZEPHYR])
@@ -28,6 +28,8 @@ def display_page(pathname):
         return mapa_idade.layout
     elif pathname == '/mapa_genero':
         return mapa_genero.layout
+    elif pathname == '/mapa_periodo':
+        return mapa_periodo.layout
     else:
         # return '404'
         return index.layout
