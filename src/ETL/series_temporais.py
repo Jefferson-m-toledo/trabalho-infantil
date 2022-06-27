@@ -27,8 +27,9 @@ def cria_dados_temporais():
     df_gr = df_gr.rename(columns={'Peso': 'Trabalhadores'})
     # cria tabela com códigos das ufs
     df_municipio = pd.read_sql_table('tbmunicipios', con=con)
-    df_uf = df_municipio[['CDUF', 'UF', 'NOUF']].drop_duplicates()
+    df_uf = df_municipio[['CDUF', 'UF', 'NOUF','Regiao']].drop_duplicates()
     df_gr = df_gr.merge(df_uf, on='CDUF', how='left')
+    df_gr['Trabalhadores'] = df_gr['Trabalhadores'].astype(int)
     try:
         df_gr.to_sql(name='tbseriestemporais', con=con, if_exists='replace', index=False)
     except ValueError:

@@ -27,5 +27,5 @@ from secrets import *
 #exporta_csv(tabela='tbpopulacaoufidade', output='dados_tratados/populacao_uf_idade.csv')
 
 # cria tabela dados temporais
-cria_dados_temporais()
+#cria_dados_temporais()
 exporta_csv(tabela='tbseriestemporais', output='dados_tratados/series_temporais.csv')
