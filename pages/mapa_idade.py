@@ -5,6 +5,7 @@ import plotly.graph_objs as go
 import plotly.express as px
 import pandas as pd
 import dash_bootstrap_components as dbc
+from pages import navbar
 
 # Cria data frame com o CSV
 database = pd.read_csv('./dados_tratados/database.csv')
@@ -31,7 +32,7 @@ grid = html.Div(
                             style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'center'}),
                     dbc.Row([
                         dbc.Col([
-                            html.Div('Selecione a região', className='fix_label', style={'color': 'white'}),
+                            html.Div('Selecione a região', className='fix_label'),
                             dcc.Dropdown(id='regiao_dropdown',
                                          multi=False,
                                          searchable=True,
@@ -43,7 +44,7 @@ grid = html.Div(
 
                         dbc.Col([
 
-                            html.Div('Selecione o estado', className='fix_label', style={'color': 'white'}),
+                            html.Div('Selecione o estado', className='fix_label'),
                             dcc.Dropdown(id='estado_dropdown',
                                          multi=False,
                                          searchable=True,
@@ -60,34 +61,12 @@ grid = html.Div(
     ]
 )
 
-# inserindo a navbar
-navbar = dbc.NavbarSimple(
-    children=[
-        dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
-        dbc.NavItem(dbc.NavLink("Saiba Mais", href="saiba_mais"), id="saiba_mais-link"),
-        dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
-        dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
-        dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
-        dbc.NavItem(dbc.NavLink("Comparação entre Períodos", href="mapa_periodo"), id="mapa-periodo-link"),
-    ],
-    brand="Mapa do Trabalho Infantil",
-    brand_href="index",
-    color="primary",
-    dark=True,
-    id="nav-bar",
-    style={'background': 'linear-gradient(145deg, #375ee3 0%, #6543e0 80%)',
-           'boxShadow': '0 1px 2px rgb(0 0 0 / 30%)',
-           'color': 'rgba(255, 255, 255, 0.7)',
-           'fontSize': '16px',
-           'fontWeight': '400'}
-)
-
 # montagem do layout
 layout = html.Div(
     [
         html.Div(id='mapa_regiao-display-value', style={'display': 'none'}),
         # inserindo a navbar
-        navbar,
+        navbar.navbar,
         dbc.Container(
             [
                 grid
@@ -97,7 +76,7 @@ layout = html.Div(
             dbc.Row([
                 dbc.Col([
                     #html.H4("Relação Idade x Atividade",style={'margin-bottom': '10px', 'textAlign': 'center'}),
-                    dcc.Graph(id='idade_atividade', className='dcc_compon', style={'marginBottom': '50px'}),
+                    dcc.Graph(id='idade_atividade', className='dcc_compon', style={'marginBottom': '50px'}, config={'displayModeBar': False}),
                 ])
             ]),
             dbc.Row([
@@ -126,7 +105,6 @@ layout = html.Div(
 
 def update_output_div(estado_dropdown):
     df = dados_idade[(dados_idade['Estado'] == estado_dropdown)]
-    #estado = str(df.Estado.unique())
     totalPopulacao = df.Populacao.sum()
     text_totalPopulacao = f'{totalPopulacao:_.2f}'
     text_totalPopulacao = text_totalPopulacao.replace('.', ',').replace('_', '.')
@@ -181,8 +159,13 @@ def update_output_div(estado_dropdown):
                  #hover_data=['AtividadeEconomica'],
                  barmode='relative',
                  )
+    fig.update_traces(hovertemplate='Faixa etária: %{x} <br>Nº de trabalhadores: %{y}')
+
     fig.update_layout(margin=dict(t=20, l=0, r=0, b=0),
                       autosize=True,
+                      xaxis=dict(title='<b>Faixa Etária</b>'),
+                      yaxis=dict(title='<b>Nº de Trabalhadores</b>'),
+                      legend=dict(title='<b>Faixa Etária</b>'),
                       #paper_bgcolor='#272b30',
                       # paper_bgcolor='#272b30',
                       #plot_bgcolor='#272b30',
@@ -213,6 +196,8 @@ def update_graph(estado_dropdown):
     fig = px.histogram(df, x="Idade", y="Trabalhadores",
                        color='AtividadeEconomica', barmode='group', range_x=[5,17], nbins=13
                        )
+    fig.update_traces(hovertemplate=('Idade: %{x} <br>Nº de trabalhadores: %{y} <br>'))
+
     fig.update_layout(legend={
                      #'bgcolor':'#1f2c56',
                      'x': 0.01, 'y':.9,},
@@ -221,6 +206,7 @@ def update_graph(estado_dropdown):
                     #plot_bgcolor='#272b30',
                     #font_color='white',
                     legend_title='Idade x Atividade Econômica',
+                    xaxis=dict(title='<b>Idade</b>'),
                     yaxis=dict(title='<b>Nº de Trabalhadores</b>')
     )
 

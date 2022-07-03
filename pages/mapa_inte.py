@@ -5,6 +5,7 @@ import plotly.express as px
 import pandas as pd
 import dash_bootstrap_components as dbc
 import json
+from pages import navbar
 
 # Carregando Json do arquivo
 geojson = json.load(open('./geoBrasil.json'))
@@ -37,7 +38,7 @@ grid = html.Div(
             html.H3('Mapa Interativo', style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'center'}),
                 dbc.Row([
                     dbc.Col([
-                        html.Div('Selecione a região', className='fix_label', style={'color': 'white'}),
+                        html.Div('Selecione a região', className='fix_label'),
                         dcc.Dropdown(id='w_countries',
                                      multi=False,
                                      searchable=True,
@@ -46,46 +47,16 @@ grid = html.Div(
                                      options=options_region, className='dcc_compon'),
                     ]),
 
-                    dbc.Col([
-                        html.Div('Selecione o estado', className='fix_label', style={'color': 'white'}),
-                        dcc.Dropdown(id='w_countries1',
-                                     multi=False,
-                                     searchable=True,
-                                     # value='',
-                                     placeholder='Selecione o estado',
-                                     options=[], className='dcc_compon'),
-                        ])
-                    ])
+                ])
         ], className='create_container three columns'),
     ]
-)
-# inserindo a navbar
-navbar = dbc.NavbarSimple(
-    children=[
-        dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
-        dbc.NavItem(dbc.NavLink("Saiba Mais", href="saiba_mais"), id="saiba_mais-link"),
-        dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
-        dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
-        dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
-        dbc.NavItem(dbc.NavLink("Comparação entre Períodos", href="mapa_periodo"), id="mapa-periodo-link"),
-    ],
-    brand="Mapa do Trabalho Infantil",
-    brand_href="index",
-    color="primary",
-    dark=True,
-    id="nav-bar",
-    style={'background': 'linear-gradient(145deg, #375ee3 0%, #6543e0 80%)',
-           'boxShadow': '0 1px 2px rgb(0 0 0 / 30%)',
-            'color': 'rgba(255, 255, 255, 0.7)',
-            'fontSize': '16px',
-            'fontWeight': '400'}
 )
 
 # montagem do layout
 layout = html.Div(
     [
         html.Div(id='mapa_inte-display-value', style={'display': 'none'}),
-        navbar,
+        navbar.navbar,
         dbc.Container(
             [
                 grid
@@ -107,83 +78,42 @@ layout = html.Div(
 
 ## TESTE MAPA CLOROPLÉTICO
 @callback(Output('mapa-interativo', 'figure'),
-          [Input('w_countries1', 'value')])
-def display_choropleth(w_countries1):
-    df = database.groupby(['UF', 'Regiao', 'Estado'])[['QUANTIDADE']].sum().reset_index()
-    if w_countries1:
-        zoom = 5
-        zoom_lat = dict_of_locations[w_countries1]['latitude']
-        zoom_long = dict_of_locations[w_countries1]['longitude']
-        fig = px.choropleth_mapbox(df, locations='UF',
-                                   geojson=geojson,
-                                   color='QUANTIDADE',
-                                   #featureidkey="feature.id",
-                                   hover_name='Estado',
-                                   hover_data=['UF', 'Regiao', 'QUANTIDADE'],
-                                   title="Mapa Interativo",
-                                   mapbox_style='white-bg',
-                                   center={"lat":zoom_lat,"lon": zoom_long},
-                                   zoom=zoom,
-                                   opacity=0.8,
-                                   )
-        fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-
-    else:
-        fig = px.choropleth_mapbox(df, locations='UF',
-                                   geojson=geojson,
-                                   color='QUANTIDADE',
-                                   # featureidkey="feature.id",
-                                   hover_name='Estado',
-                                   hover_data=['UF', 'Regiao', 'QUANTIDADE'],
-                                   title="Mapa Interativo",
-                                   mapbox_style='white-bg',
-                                   center={"lat": -14, "lon": -55},
-                                   zoom=3,
-                                   opacity=0.8,
-                                   )
-        fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+          [Input('w_countries', 'value')])
+def display_choropleth(w_countries):
+    texto = ('<b>UF</b>: ' + database['UF'].astype(str) + '<br>' +
+             '<b>Estado</b>: ' + database['Estado'].astype(str) + '<br>' +
+             '<b>Região</b>: ' + database['Regiao'].astype(str) + '<br>' +
+             '<b>Quantidade</b>: ' + database['QUANTIDADE'].astype(str))
+    fig = px.choropleth_mapbox(database, locations='UF',
+                               geojson=geojson,
+                               color='QUANTIDADE',
+                               hover_name='Estado',
+                               #hover_data=['UF', 'Regiao', 'QUANTIDADE'],
+                               hover_data={'':texto, 'UF': False, 'Regiao':False,'QUANTIDADE':False},
+                               title="Mapa Interativo",
+                               mapbox_style='white-bg',
+                               center={"lat": -14, "lon": -55},
+                               zoom=3,
+                               opacity=0.8,
+                               )
+    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     return fig
 
 
 
 
-@callback(Output('w_countries1', 'options'),
-          [Input('w_countries', 'value')])
-def update_country(w_countries):
-    if w_countries == 'Todas':
-        dados1 = database.groupby(['UF', 'Regiao', 'Estado'])[['QUANTIDADE']].sum().reset_index()
-        return [{'label': 'Selecione e região', 'value': 'Selecione e região'}]
-        # return [{'label': i, 'value': i} for i in dados1['Estado'].unique()]
-    else:
-        dados2 = database[database['Regiao'] == w_countries]
-        return [{'label': i, 'value': i} for i in dados2['Estado'].unique()]
-
-
-@callback(Output('w_countries1', 'value'),
-          [Input('w_countries1', 'options')])
-def update_country(w_countries1):
-    if 'w_countries' == 'Todas':
-        dados3 = database.groupby(['UF', 'Regiao', 'Estado'])[['QUANTIDADE']].sum().reset_index()
-        return [{'label': i, 'value': i} for i in dados3['Estado'].unique()]
-    else:
-        # dados3 = database[database['Regiao'] == w_countries]
-        return [k['value'] for k in w_countries1]
-
-
 # Início da callback do gráfico de barras
-
 @callback(Output('bar_chart', 'figure'),
-          [Input('w_countries', 'value')],
-          [Input('w_countries1', 'value')])
-def update_graph(w_countries, w_countries1):
+          [Input('w_countries', 'value')])
+          #[Input('w_countries1', 'value')])
+def update_graph(w_countries):
     if w_countries == 'Todas':
-        dados6 = database.groupby(['UF', 'Regiao', 'Estado'])[['QUANTIDADE']].sum().reset_index()
+        dados6 = database.groupby(['UF', 'Regiao', 'Estado'])[['QUANTIDADE']].sum().reset_index().sort_values(by=['QUANTIDADE'])
 
     else:
-        dados5 = database.groupby(['UF', 'Regiao', 'Estado'])[['QUANTIDADE']].sum().reset_index()
+        dados5 = database.groupby(['UF', 'Regiao', 'Estado'])[['QUANTIDADE']].sum().reset_index().sort_values(by=['QUANTIDADE'])
         dados6 = dados5[(dados5['Regiao'] == w_countries)]
-
     return {
         'data': [go.Bar(
             x=dados6['UF'],
@@ -191,7 +121,7 @@ def update_graph(w_countries, w_countries1):
             text=dados6['QUANTIDADE'],
             texttemplate='%{text:,.0f}',
             textposition='auto',
-            name='injured',
+            #name='injured',
             marker=dict(color='#1da6f0'),
             hoverinfo='text',
             hovertext=
@@ -206,7 +136,7 @@ def update_graph(w_countries, w_countries1):
 
         'layout': go.Layout(
             barmode='stack',
-            title={'text': 'Quantidade de registro por estado/região:' + '<br>',
+            title={'text': 'Quantidade de registro por região/estado:' + '<br>',
                    'y': 0.93,
                    'x': 0.5,
                    'xanchor': 'center',
@@ -297,7 +227,7 @@ def display_click_data(clickData):
                             ]),
                             dbc.Row([
                                 html.Div([
-                                    dcc.Graph(figure=fig)
+                                    dcc.Graph(figure=fig, config={'displayModeBar': False})
 
                                 ], className='pretty_container one columns')
                             ])

@@ -6,6 +6,7 @@ import plotly.express as px
 import pandas as pd
 import dash_bootstrap_components as dbc
 from plotly.subplots import make_subplots
+from pages import navbar
 
 # Cria data frame com o CSV
 database = pd.read_csv('./dados_tratados/database.csv')
@@ -35,7 +36,7 @@ grid = html.Div(
                             style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'center'}),
                     dbc.Row([
                         dbc.Col([
-                            html.Div('Selecione a região', className='fix_label', style={'color': 'white'}),
+                            html.Div('Selecione a região', className='fix_label'),
                             dcc.Dropdown(id='regiao_dropdown',
                                          multi=False,
                                          searchable=True,
@@ -47,7 +48,7 @@ grid = html.Div(
 
                         dbc.Col([
 
-                            html.Div('Selecione o estado', className='fix_label', style={'color': 'white'}),
+                            html.Div('Selecione o estado', className='fix_label'),
                             dcc.Dropdown(id='estado_dropdown',
                                          multi=False,
                                          searchable=True,
@@ -64,51 +65,13 @@ grid = html.Div(
     ]
 )
 
-#inserindo a navbar
-navbar = dbc.NavbarSimple(
-    children=[
-        dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
-        dbc.NavItem(dbc.NavLink("Saiba Mais", href="saiba_mais"), id="saiba_mais-link"),
-        dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
-        dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
-        dbc.NavItem(dbc.NavLink("Gênero e Trabalho", href="mapa_genero"), id="mapa-genero-link"),
-        dbc.NavItem(dbc.NavLink("Comparação entre Períodos", href="mapa_periodo"), id="mapa-periodo-link"),
-        # dbc.NavItem(dbc.NavLink("Análise por período", href="mapa_periodo"), id="mapa-periodo-link"),
-        # dbc.NavItem(dbc.NavLink("Gênero e Tipo de trabalho", href="#"), id="mapa-tipo-link"),
-        # dbc.NavItem(dbc.NavLink("Análise por período", href="#"), id="mapa-periodo-link"),
-        # dbc.DropdownMenu(
-        #     children=[
-        #         dbc.DropdownMenuItem("Início", href="index", id='index-link'),
-        #         dbc.DropdownMenuItem("Mapa Interativo", href="mapa_inte", id='mapa_inte-link'),
-        #         dbc.DropdownMenuItem("Dashboard", href="mapa_regiao", id='mapa_regiao-link'),
-        #         #dbc.DropdownMenuItem("Gênero e Tipo de trabalho", href="mapa_trabalho", id='mapa_trabalho-link'),
-        #         #dbc.DropdownMenuItem("Análise por período", href="mapa_periodo", id='mapa_periodo'),
-        #     ],
-        #     nav=True,
-        #     in_navbar=True,
-        #     label="Início",
-        #     id='drop-down-mapa_regiao'
-        #
-        # ),
-    ],
-    brand="Mapa do Trabalho Infantil",
-    brand_href="index",
-    color="primary",
-    dark=True,
-    id="nav-bar",
-    style={'background': 'linear-gradient(145deg, #375ee3 0%, #6543e0 80%)',
-           'boxShadow': '0 1px 2px rgb(0 0 0 / 30%)',
-           'color': 'rgba(255, 255, 255, 0.7)',
-           'fontSize': '16px',
-           'fontWeight': '400'}
-)
 
 # montagem do layout
 layout = html.Div(
     [
         html.Div(id='mapa_genero-display-value'),
         # inserindo a navbar
-        navbar,
+        navbar.navbar,
         dbc.Container(
             [
                 grid
@@ -129,7 +92,7 @@ layout = html.Div(
             ]),
             dbc.Row([
                 dbc.Col([
-                            html.Div('Selecione o gênero', className='fix_label', style={'color': 'white'}),
+                            html.Div('Selecione o gênero', className='fix_label'),
                             dcc.Dropdown(id='genero_dropdown',
                                          multi=False,
                                          searchable=True,
@@ -288,7 +251,8 @@ def update_output_div(estado_dropdown, genero_dropdown):
                       # plot_bgcolor='#272b30',
                       # font_color='white'
                       yaxis=dict(title='Nº de Trabalhadores(as)'),
-                      xaxis=dict(title='Grupo da atividade')
+                      xaxis=dict(title='Grupo da atividade'),
+                      legend=dict(title='Faixa Etária')
                       )
 
 
