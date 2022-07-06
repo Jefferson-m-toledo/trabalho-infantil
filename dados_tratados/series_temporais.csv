@@ -1,0 +1,428 @@
+CDUF,FaixaIdade,Ano,Trimestre,Trabalhadores,UF,NOUF,Regiao
+11,14 a 17,2018,1,13464,RO,Rondônia,Norte
+11,14 a 17,2018,2,4908,RO,Rondônia,Norte
+11,14 a 17,2018,3,10096,RO,Rondônia,Norte
+11,14 a 17,2018,4,13203,RO,Rondônia,Norte
+11,14 a 17,2019,1,10385,RO,Rondônia,Norte
+11,14 a 17,2019,2,5153,RO,Rondônia,Norte
+11,14 a 17,2019,3,9136,RO,Rondônia,Norte
+11,14 a 17,2019,4,5620,RO,Rondônia,Norte
+11,5 a 13,2018,1,3978,RO,Rondônia,Norte
+11,5 a 13,2018,2,4285,RO,Rondônia,Norte
+11,5 a 13,2018,3,1868,RO,Rondônia,Norte
+11,5 a 13,2018,4,8268,RO,Rondônia,Norte
+11,5 a 13,2019,1,3377,RO,Rondônia,Norte
+11,5 a 13,2019,2,4249,RO,Rondônia,Norte
+11,5 a 13,2019,3,2230,RO,Rondônia,Norte
+11,5 a 13,2019,4,958,RO,Rondônia,Norte
+12,14 a 17,2018,1,3321,AC,Acre,Norte
+12,14 a 17,2018,2,3899,AC,Acre,Norte
+12,14 a 17,2018,3,3739,AC,Acre,Norte
+12,14 a 17,2018,4,4103,AC,Acre,Norte
+12,14 a 17,2019,1,4108,AC,Acre,Norte
+12,14 a 17,2019,2,2491,AC,Acre,Norte
+12,14 a 17,2019,3,2834,AC,Acre,Norte
+12,14 a 17,2019,4,3363,AC,Acre,Norte
+12,5 a 13,2018,1,1490,AC,Acre,Norte
+12,5 a 13,2018,2,1583,AC,Acre,Norte
+12,5 a 13,2018,3,1211,AC,Acre,Norte
+12,5 a 13,2018,4,1936,AC,Acre,Norte
+12,5 a 13,2019,1,1451,AC,Acre,Norte
+12,5 a 13,2019,2,308,AC,Acre,Norte
+12,5 a 13,2019,3,554,AC,Acre,Norte
+12,5 a 13,2019,4,1451,AC,Acre,Norte
+13,14 a 17,2018,1,17905,AM,Amazonas,Norte
+13,14 a 17,2018,2,15279,AM,Amazonas,Norte
+13,14 a 17,2018,3,20140,AM,Amazonas,Norte
+13,14 a 17,2018,4,14008,AM,Amazonas,Norte
+13,14 a 17,2019,1,14068,AM,Amazonas,Norte
+13,14 a 17,2019,2,15469,AM,Amazonas,Norte
+13,14 a 17,2019,3,17741,AM,Amazonas,Norte
+13,14 a 17,2019,4,19222,AM,Amazonas,Norte
+13,5 a 13,2018,1,2310,AM,Amazonas,Norte
+13,5 a 13,2018,2,2754,AM,Amazonas,Norte
+13,5 a 13,2018,3,2518,AM,Amazonas,Norte
+13,5 a 13,2018,4,3729,AM,Amazonas,Norte
+13,5 a 13,2019,1,1917,AM,Amazonas,Norte
+13,5 a 13,2019,2,2107,AM,Amazonas,Norte
+13,5 a 13,2019,3,1322,AM,Amazonas,Norte
+13,5 a 13,2019,4,1916,AM,Amazonas,Norte
+14,14 a 17,2018,1,2677,RR,Roraima,Norte
+14,14 a 17,2018,2,1911,RR,Roraima,Norte
+14,14 a 17,2018,3,1061,RR,Roraima,Norte
+14,14 a 17,2018,4,1723,RR,Roraima,Norte
+14,14 a 17,2019,1,1750,RR,Roraima,Norte
+14,14 a 17,2019,2,1638,RR,Roraima,Norte
+14,14 a 17,2019,3,1956,RR,Roraima,Norte
+14,14 a 17,2019,4,1320,RR,Roraima,Norte
+14,5 a 13,2018,1,133,RR,Roraima,Norte
+14,5 a 13,2018,2,495,RR,Roraima,Norte
+14,5 a 13,2018,3,364,RR,Roraima,Norte
+14,5 a 13,2018,4,1941,RR,Roraima,Norte
+14,5 a 13,2019,1,1615,RR,Roraima,Norte
+14,5 a 13,2019,2,851,RR,Roraima,Norte
+14,5 a 13,2019,3,871,RR,Roraima,Norte
+14,5 a 13,2019,4,427,RR,Roraima,Norte
+15,14 a 17,2018,1,35655,PA,Pará,Norte
+15,14 a 17,2018,2,44101,PA,Pará,Norte
+15,14 a 17,2018,3,45439,PA,Pará,Norte
+15,14 a 17,2018,4,45838,PA,Pará,Norte
+15,14 a 17,2019,1,35664,PA,Pará,Norte
+15,14 a 17,2019,2,37458,PA,Pará,Norte
+15,14 a 17,2019,3,38495,PA,Pará,Norte
+15,14 a 17,2019,4,39223,PA,Pará,Norte
+15,5 a 13,2018,1,10499,PA,Pará,Norte
+15,5 a 13,2018,2,13379,PA,Pará,Norte
+15,5 a 13,2018,3,13129,PA,Pará,Norte
+15,5 a 13,2018,4,14798,PA,Pará,Norte
+15,5 a 13,2019,1,11669,PA,Pará,Norte
+15,5 a 13,2019,2,4848,PA,Pará,Norte
+15,5 a 13,2019,3,12590,PA,Pará,Norte
+15,5 a 13,2019,4,8310,PA,Pará,Norte
+16,14 a 17,2018,1,1611,AP,Amapá,Norte
+16,14 a 17,2018,2,551,AP,Amapá,Norte
+16,14 a 17,2018,3,863,AP,Amapá,Norte
+16,14 a 17,2018,4,2650,AP,Amapá,Norte
+16,14 a 17,2019,1,3991,AP,Amapá,Norte
+16,14 a 17,2019,2,2861,AP,Amapá,Norte
+16,14 a 17,2019,3,1581,AP,Amapá,Norte
+16,14 a 17,2019,4,1777,AP,Amapá,Norte
+16,5 a 13,2018,2,295,AP,Amapá,Norte
+16,5 a 13,2018,3,311,AP,Amapá,Norte
+16,5 a 13,2019,1,1167,AP,Amapá,Norte
+16,5 a 13,2019,2,471,AP,Amapá,Norte
+16,5 a 13,2019,4,169,AP,Amapá,Norte
+17,14 a 17,2018,1,4842,TO,Tocantins,Norte
+17,14 a 17,2018,2,8953,TO,Tocantins,Norte
+17,14 a 17,2018,3,7302,TO,Tocantins,Norte
+17,14 a 17,2018,4,9807,TO,Tocantins,Norte
+17,14 a 17,2019,1,5958,TO,Tocantins,Norte
+17,14 a 17,2019,2,7783,TO,Tocantins,Norte
+17,14 a 17,2019,3,8708,TO,Tocantins,Norte
+17,14 a 17,2019,4,3957,TO,Tocantins,Norte
+17,5 a 13,2018,1,2033,TO,Tocantins,Norte
+17,5 a 13,2018,2,1930,TO,Tocantins,Norte
+17,5 a 13,2018,3,1317,TO,Tocantins,Norte
+17,5 a 13,2018,4,3601,TO,Tocantins,Norte
+17,5 a 13,2019,1,2236,TO,Tocantins,Norte
+17,5 a 13,2019,2,1751,TO,Tocantins,Norte
+17,5 a 13,2019,3,1504,TO,Tocantins,Norte
+17,5 a 13,2019,4,2599,TO,Tocantins,Norte
+21,14 a 17,2018,1,35379,MA,Maranhão,Nordeste
+21,14 a 17,2018,2,28783,MA,Maranhão,Nordeste
+21,14 a 17,2018,3,20781,MA,Maranhão,Nordeste
+21,14 a 17,2018,4,23806,MA,Maranhão,Nordeste
+21,14 a 17,2019,1,30991,MA,Maranhão,Nordeste
+21,14 a 17,2019,2,33029,MA,Maranhão,Nordeste
+21,14 a 17,2019,3,23391,MA,Maranhão,Nordeste
+21,14 a 17,2019,4,22366,MA,Maranhão,Nordeste
+21,5 a 13,2018,1,13050,MA,Maranhão,Nordeste
+21,5 a 13,2018,2,6014,MA,Maranhão,Nordeste
+21,5 a 13,2018,3,8160,MA,Maranhão,Nordeste
+21,5 a 13,2018,4,10061,MA,Maranhão,Nordeste
+21,5 a 13,2019,1,11528,MA,Maranhão,Nordeste
+21,5 a 13,2019,2,10587,MA,Maranhão,Nordeste
+21,5 a 13,2019,3,11244,MA,Maranhão,Nordeste
+21,5 a 13,2019,4,5282,MA,Maranhão,Nordeste
+22,14 a 17,2018,1,12325,PI,Piauí,Nordeste
+22,14 a 17,2018,2,9710,PI,Piauí,Nordeste
+22,14 a 17,2018,3,8942,PI,Piauí,Nordeste
+22,14 a 17,2018,4,16687,PI,Piauí,Nordeste
+22,14 a 17,2019,1,16603,PI,Piauí,Nordeste
+22,14 a 17,2019,2,12085,PI,Piauí,Nordeste
+22,14 a 17,2019,3,9073,PI,Piauí,Nordeste
+22,14 a 17,2019,4,7691,PI,Piauí,Nordeste
+22,5 a 13,2018,1,2267,PI,Piauí,Nordeste
+22,5 a 13,2018,2,6270,PI,Piauí,Nordeste
+22,5 a 13,2018,3,1747,PI,Piauí,Nordeste
+22,5 a 13,2018,4,2996,PI,Piauí,Nordeste
+22,5 a 13,2019,1,2910,PI,Piauí,Nordeste
+22,5 a 13,2019,2,3932,PI,Piauí,Nordeste
+22,5 a 13,2019,3,2474,PI,Piauí,Nordeste
+22,5 a 13,2019,4,2282,PI,Piauí,Nordeste
+23,14 a 17,2018,1,35664,CE,Ceará,Nordeste
+23,14 a 17,2018,2,28027,CE,Ceará,Nordeste
+23,14 a 17,2018,3,24653,CE,Ceará,Nordeste
+23,14 a 17,2018,4,26064,CE,Ceará,Nordeste
+23,14 a 17,2019,1,30389,CE,Ceará,Nordeste
+23,14 a 17,2019,2,26052,CE,Ceará,Nordeste
+23,14 a 17,2019,3,37423,CE,Ceará,Nordeste
+23,14 a 17,2019,4,26145,CE,Ceará,Nordeste
+23,5 a 13,2018,1,8451,CE,Ceará,Nordeste
+23,5 a 13,2018,2,7641,CE,Ceará,Nordeste
+23,5 a 13,2018,3,10809,CE,Ceará,Nordeste
+23,5 a 13,2018,4,10344,CE,Ceará,Nordeste
+23,5 a 13,2019,1,7776,CE,Ceará,Nordeste
+23,5 a 13,2019,2,9281,CE,Ceará,Nordeste
+23,5 a 13,2019,3,13037,CE,Ceará,Nordeste
+23,5 a 13,2019,4,7792,CE,Ceará,Nordeste
+24,14 a 17,2018,1,11522,RN,Rio Grande do Norte,Nordeste
+24,14 a 17,2018,2,9443,RN,Rio Grande do Norte,Nordeste
+24,14 a 17,2018,3,11874,RN,Rio Grande do Norte,Nordeste
+24,14 a 17,2018,4,11573,RN,Rio Grande do Norte,Nordeste
+24,14 a 17,2019,1,6230,RN,Rio Grande do Norte,Nordeste
+24,14 a 17,2019,2,7950,RN,Rio Grande do Norte,Nordeste
+24,14 a 17,2019,3,8248,RN,Rio Grande do Norte,Nordeste
+24,14 a 17,2019,4,8126,RN,Rio Grande do Norte,Nordeste
+24,5 a 13,2018,2,2347,RN,Rio Grande do Norte,Nordeste
+24,5 a 13,2018,3,2153,RN,Rio Grande do Norte,Nordeste
+24,5 a 13,2019,1,3474,RN,Rio Grande do Norte,Nordeste
+24,5 a 13,2019,2,4951,RN,Rio Grande do Norte,Nordeste
+24,5 a 13,2019,3,736,RN,Rio Grande do Norte,Nordeste
+24,5 a 13,2019,4,1300,RN,Rio Grande do Norte,Nordeste
+25,14 a 17,2018,1,16761,PB,Paraíba,Nordeste
+25,14 a 17,2018,2,15590,PB,Paraíba,Nordeste
+25,14 a 17,2018,3,13011,PB,Paraíba,Nordeste
+25,14 a 17,2018,4,16250,PB,Paraíba,Nordeste
+25,14 a 17,2019,1,19639,PB,Paraíba,Nordeste
+25,14 a 17,2019,2,13054,PB,Paraíba,Nordeste
+25,14 a 17,2019,3,10267,PB,Paraíba,Nordeste
+25,14 a 17,2019,4,5942,PB,Paraíba,Nordeste
+25,5 a 13,2018,1,693,PB,Paraíba,Nordeste
+25,5 a 13,2018,2,5095,PB,Paraíba,Nordeste
+25,5 a 13,2018,3,4224,PB,Paraíba,Nordeste
+25,5 a 13,2018,4,5029,PB,Paraíba,Nordeste
+25,5 a 13,2019,1,8375,PB,Paraíba,Nordeste
+25,5 a 13,2019,2,3289,PB,Paraíba,Nordeste
+25,5 a 13,2019,3,2279,PB,Paraíba,Nordeste
+25,5 a 13,2019,4,4382,PB,Paraíba,Nordeste
+26,14 a 17,2018,1,49295,PE,Pernambuco,Nordeste
+26,14 a 17,2018,2,28920,PE,Pernambuco,Nordeste
+26,14 a 17,2018,3,42284,PE,Pernambuco,Nordeste
+26,14 a 17,2018,4,24826,PE,Pernambuco,Nordeste
+26,14 a 17,2019,1,34291,PE,Pernambuco,Nordeste
+26,14 a 17,2019,2,45396,PE,Pernambuco,Nordeste
+26,14 a 17,2019,3,18596,PE,Pernambuco,Nordeste
+26,14 a 17,2019,4,23052,PE,Pernambuco,Nordeste
+26,5 a 13,2018,1,11573,PE,Pernambuco,Nordeste
+26,5 a 13,2018,2,8490,PE,Pernambuco,Nordeste
+26,5 a 13,2018,3,13650,PE,Pernambuco,Nordeste
+26,5 a 13,2018,4,12024,PE,Pernambuco,Nordeste
+26,5 a 13,2019,1,17032,PE,Pernambuco,Nordeste
+26,5 a 13,2019,2,14552,PE,Pernambuco,Nordeste
+26,5 a 13,2019,3,12525,PE,Pernambuco,Nordeste
+26,5 a 13,2019,4,11635,PE,Pernambuco,Nordeste
+27,14 a 17,2018,1,11889,AL,Alagoas,Nordeste
+27,14 a 17,2018,2,10115,AL,Alagoas,Nordeste
+27,14 a 17,2018,3,7095,AL,Alagoas,Nordeste
+27,14 a 17,2018,4,8965,AL,Alagoas,Nordeste
+27,14 a 17,2019,1,9650,AL,Alagoas,Nordeste
+27,14 a 17,2019,2,8322,AL,Alagoas,Nordeste
+27,14 a 17,2019,3,10764,AL,Alagoas,Nordeste
+27,14 a 17,2019,4,7977,AL,Alagoas,Nordeste
+27,5 a 13,2018,1,3780,AL,Alagoas,Nordeste
+27,5 a 13,2018,2,1749,AL,Alagoas,Nordeste
+27,5 a 13,2018,3,4089,AL,Alagoas,Nordeste
+27,5 a 13,2018,4,2055,AL,Alagoas,Nordeste
+27,5 a 13,2019,1,4419,AL,Alagoas,Nordeste
+27,5 a 13,2019,2,1531,AL,Alagoas,Nordeste
+27,5 a 13,2019,3,2235,AL,Alagoas,Nordeste
+27,5 a 13,2019,4,1638,AL,Alagoas,Nordeste
+28,14 a 17,2018,1,9207,SE,Sergipe,Nordeste
+28,14 a 17,2018,2,8037,SE,Sergipe,Nordeste
+28,14 a 17,2018,3,7199,SE,Sergipe,Nordeste
+28,14 a 17,2018,4,6904,SE,Sergipe,Nordeste
+28,14 a 17,2019,1,8090,SE,Sergipe,Nordeste
+28,14 a 17,2019,2,7157,SE,Sergipe,Nordeste
+28,14 a 17,2019,3,6329,SE,Sergipe,Nordeste
+28,14 a 17,2019,4,8525,SE,Sergipe,Nordeste
+28,5 a 13,2018,1,3293,SE,Sergipe,Nordeste
+28,5 a 13,2018,2,4814,SE,Sergipe,Nordeste
+28,5 a 13,2018,3,4354,SE,Sergipe,Nordeste
+28,5 a 13,2018,4,4988,SE,Sergipe,Nordeste
+28,5 a 13,2019,1,2460,SE,Sergipe,Nordeste
+28,5 a 13,2019,2,4491,SE,Sergipe,Nordeste
+28,5 a 13,2019,3,5024,SE,Sergipe,Nordeste
+28,5 a 13,2019,4,4589,SE,Sergipe,Nordeste
+29,14 a 17,2018,1,93505,BA,Bahia,Nordeste
+29,14 a 17,2018,2,68557,BA,Bahia,Nordeste
+29,14 a 17,2018,3,40513,BA,Bahia,Nordeste
+29,14 a 17,2018,4,50049,BA,Bahia,Nordeste
+29,14 a 17,2019,1,49505,BA,Bahia,Nordeste
+29,14 a 17,2019,2,69173,BA,Bahia,Nordeste
+29,14 a 17,2019,3,65333,BA,Bahia,Nordeste
+29,14 a 17,2019,4,60073,BA,Bahia,Nordeste
+29,5 a 13,2018,1,38105,BA,Bahia,Nordeste
+29,5 a 13,2018,2,17134,BA,Bahia,Nordeste
+29,5 a 13,2018,3,17953,BA,Bahia,Nordeste
+29,5 a 13,2018,4,19985,BA,Bahia,Nordeste
+29,5 a 13,2019,1,20013,BA,Bahia,Nordeste
+29,5 a 13,2019,2,19313,BA,Bahia,Nordeste
+29,5 a 13,2019,3,15270,BA,Bahia,Nordeste
+29,5 a 13,2019,4,31670,BA,Bahia,Nordeste
+31,14 a 17,2018,1,112035,MG,Minas Gerais,Sudeste
+31,14 a 17,2018,2,116241,MG,Minas Gerais,Sudeste
+31,14 a 17,2018,3,85769,MG,Minas Gerais,Sudeste
+31,14 a 17,2018,4,69264,MG,Minas Gerais,Sudeste
+31,14 a 17,2019,1,85730,MG,Minas Gerais,Sudeste
+31,14 a 17,2019,2,86564,MG,Minas Gerais,Sudeste
+31,14 a 17,2019,3,133281,MG,Minas Gerais,Sudeste
+31,14 a 17,2019,4,105205,MG,Minas Gerais,Sudeste
+31,5 a 13,2018,1,6124,MG,Minas Gerais,Sudeste
+31,5 a 13,2018,2,11409,MG,Minas Gerais,Sudeste
+31,5 a 13,2018,3,7336,MG,Minas Gerais,Sudeste
+31,5 a 13,2018,4,9053,MG,Minas Gerais,Sudeste
+31,5 a 13,2019,1,12632,MG,Minas Gerais,Sudeste
+31,5 a 13,2019,2,7947,MG,Minas Gerais,Sudeste
+31,5 a 13,2019,3,14726,MG,Minas Gerais,Sudeste
+31,5 a 13,2019,4,19723,MG,Minas Gerais,Sudeste
+32,14 a 17,2018,1,14456,ES,Espírito Santo,Sudeste
+32,14 a 17,2018,2,17678,ES,Espírito Santo,Sudeste
+32,14 a 17,2018,3,14176,ES,Espírito Santo,Sudeste
+32,14 a 17,2018,4,14536,ES,Espírito Santo,Sudeste
+32,14 a 17,2019,1,15888,ES,Espírito Santo,Sudeste
+32,14 a 17,2019,2,15694,ES,Espírito Santo,Sudeste
+32,14 a 17,2019,3,13061,ES,Espírito Santo,Sudeste
+32,14 a 17,2019,4,16576,ES,Espírito Santo,Sudeste
+32,5 a 13,2018,1,2685,ES,Espírito Santo,Sudeste
+32,5 a 13,2018,2,4924,ES,Espírito Santo,Sudeste
+32,5 a 13,2018,3,3245,ES,Espírito Santo,Sudeste
+32,5 a 13,2018,4,5058,ES,Espírito Santo,Sudeste
+32,5 a 13,2019,1,3680,ES,Espírito Santo,Sudeste
+32,5 a 13,2019,2,4040,ES,Espírito Santo,Sudeste
+32,5 a 13,2019,3,1990,ES,Espírito Santo,Sudeste
+32,5 a 13,2019,4,4555,ES,Espírito Santo,Sudeste
+33,14 a 17,2018,1,46056,RJ,Rio de Janeiro,Sudeste
+33,14 a 17,2018,2,27475,RJ,Rio de Janeiro,Sudeste
+33,14 a 17,2018,3,16119,RJ,Rio de Janeiro,Sudeste
+33,14 a 17,2018,4,28263,RJ,Rio de Janeiro,Sudeste
+33,14 a 17,2019,1,19106,RJ,Rio de Janeiro,Sudeste
+33,14 a 17,2019,2,30003,RJ,Rio de Janeiro,Sudeste
+33,14 a 17,2019,3,21618,RJ,Rio de Janeiro,Sudeste
+33,14 a 17,2019,4,38586,RJ,Rio de Janeiro,Sudeste
+33,5 a 13,2018,1,9666,RJ,Rio de Janeiro,Sudeste
+33,5 a 13,2018,2,11237,RJ,Rio de Janeiro,Sudeste
+33,5 a 13,2018,3,13985,RJ,Rio de Janeiro,Sudeste
+33,5 a 13,2018,4,17180,RJ,Rio de Janeiro,Sudeste
+33,5 a 13,2019,1,17841,RJ,Rio de Janeiro,Sudeste
+33,5 a 13,2019,2,19385,RJ,Rio de Janeiro,Sudeste
+33,5 a 13,2019,3,12613,RJ,Rio de Janeiro,Sudeste
+33,5 a 13,2019,4,8064,RJ,Rio de Janeiro,Sudeste
+35,14 a 17,2018,1,238428,SP,São Paulo,Sudeste
+35,14 a 17,2018,2,204647,SP,São Paulo,Sudeste
+35,14 a 17,2018,3,177778,SP,São Paulo,Sudeste
+35,14 a 17,2018,4,143710,SP,São Paulo,Sudeste
+35,14 a 17,2019,1,184264,SP,São Paulo,Sudeste
+35,14 a 17,2019,2,199953,SP,São Paulo,Sudeste
+35,14 a 17,2019,3,169201,SP,São Paulo,Sudeste
+35,14 a 17,2019,4,166080,SP,São Paulo,Sudeste
+35,5 a 13,2018,1,51431,SP,São Paulo,Sudeste
+35,5 a 13,2018,2,42614,SP,São Paulo,Sudeste
+35,5 a 13,2018,3,38156,SP,São Paulo,Sudeste
+35,5 a 13,2018,4,30914,SP,São Paulo,Sudeste
+35,5 a 13,2019,1,40766,SP,São Paulo,Sudeste
+35,5 a 13,2019,2,64043,SP,São Paulo,Sudeste
+35,5 a 13,2019,3,55396,SP,São Paulo,Sudeste
+35,5 a 13,2019,4,38112,SP,São Paulo,Sudeste
+41,14 a 17,2018,1,68263,PR,Paraná,Sul
+41,14 a 17,2018,2,62784,PR,Paraná,Sul
+41,14 a 17,2018,3,57693,PR,Paraná,Sul
+41,14 a 17,2018,4,61320,PR,Paraná,Sul
+41,14 a 17,2019,1,58437,PR,Paraná,Sul
+41,14 a 17,2019,2,60482,PR,Paraná,Sul
+41,14 a 17,2019,3,54552,PR,Paraná,Sul
+41,14 a 17,2019,4,55823,PR,Paraná,Sul
+41,5 a 13,2018,1,11487,PR,Paraná,Sul
+41,5 a 13,2018,2,23045,PR,Paraná,Sul
+41,5 a 13,2018,3,21533,PR,Paraná,Sul
+41,5 a 13,2018,4,19816,PR,Paraná,Sul
+41,5 a 13,2019,1,14285,PR,Paraná,Sul
+41,5 a 13,2019,2,16967,PR,Paraná,Sul
+41,5 a 13,2019,3,15836,PR,Paraná,Sul
+41,5 a 13,2019,4,16253,PR,Paraná,Sul
+42,14 a 17,2018,1,50033,SC,Santa Catarina,Sul
+42,14 a 17,2018,2,36747,SC,Santa Catarina,Sul
+42,14 a 17,2018,3,31270,SC,Santa Catarina,Sul
+42,14 a 17,2018,4,35112,SC,Santa Catarina,Sul
+42,14 a 17,2019,1,35069,SC,Santa Catarina,Sul
+42,14 a 17,2019,2,36585,SC,Santa Catarina,Sul
+42,14 a 17,2019,3,30260,SC,Santa Catarina,Sul
+42,14 a 17,2019,4,35471,SC,Santa Catarina,Sul
+42,5 a 13,2018,1,12444,SC,Santa Catarina,Sul
+42,5 a 13,2018,2,12589,SC,Santa Catarina,Sul
+42,5 a 13,2018,3,8831,SC,Santa Catarina,Sul
+42,5 a 13,2018,4,8066,SC,Santa Catarina,Sul
+42,5 a 13,2019,1,9597,SC,Santa Catarina,Sul
+42,5 a 13,2019,2,12287,SC,Santa Catarina,Sul
+42,5 a 13,2019,3,9738,SC,Santa Catarina,Sul
+42,5 a 13,2019,4,12232,SC,Santa Catarina,Sul
+43,14 a 17,2018,1,57257,RS,Rio Grande do Sul,Sul
+43,14 a 17,2018,2,55786,RS,Rio Grande do Sul,Sul
+43,14 a 17,2018,3,41277,RS,Rio Grande do Sul,Sul
+43,14 a 17,2018,4,50521,RS,Rio Grande do Sul,Sul
+43,14 a 17,2019,1,41363,RS,Rio Grande do Sul,Sul
+43,14 a 17,2019,2,28995,RS,Rio Grande do Sul,Sul
+43,14 a 17,2019,3,42822,RS,Rio Grande do Sul,Sul
+43,14 a 17,2019,4,52468,RS,Rio Grande do Sul,Sul
+43,5 a 13,2018,1,5327,RS,Rio Grande do Sul,Sul
+43,5 a 13,2018,2,12998,RS,Rio Grande do Sul,Sul
+43,5 a 13,2018,3,20240,RS,Rio Grande do Sul,Sul
+43,5 a 13,2018,4,11761,RS,Rio Grande do Sul,Sul
+43,5 a 13,2019,1,14647,RS,Rio Grande do Sul,Sul
+43,5 a 13,2019,2,16485,RS,Rio Grande do Sul,Sul
+43,5 a 13,2019,3,11630,RS,Rio Grande do Sul,Sul
+43,5 a 13,2019,4,15866,RS,Rio Grande do Sul,Sul
+50,14 a 17,2018,1,13700,MS,Mato Grosso do Sul,Centro-Oeste
+50,14 a 17,2018,2,13052,MS,Mato Grosso do Sul,Centro-Oeste
+50,14 a 17,2018,3,11117,MS,Mato Grosso do Sul,Centro-Oeste
+50,14 a 17,2018,4,9403,MS,Mato Grosso do Sul,Centro-Oeste
+50,14 a 17,2019,1,14409,MS,Mato Grosso do Sul,Centro-Oeste
+50,14 a 17,2019,2,14993,MS,Mato Grosso do Sul,Centro-Oeste
+50,14 a 17,2019,3,12599,MS,Mato Grosso do Sul,Centro-Oeste
+50,14 a 17,2019,4,12868,MS,Mato Grosso do Sul,Centro-Oeste
+50,5 a 13,2018,1,1016,MS,Mato Grosso do Sul,Centro-Oeste
+50,5 a 13,2018,2,1428,MS,Mato Grosso do Sul,Centro-Oeste
+50,5 a 13,2018,3,3666,MS,Mato Grosso do Sul,Centro-Oeste
+50,5 a 13,2018,4,2920,MS,Mato Grosso do Sul,Centro-Oeste
+50,5 a 13,2019,1,4224,MS,Mato Grosso do Sul,Centro-Oeste
+50,5 a 13,2019,2,5795,MS,Mato Grosso do Sul,Centro-Oeste
+50,5 a 13,2019,3,2656,MS,Mato Grosso do Sul,Centro-Oeste
+50,5 a 13,2019,4,2669,MS,Mato Grosso do Sul,Centro-Oeste
+51,14 a 17,2018,1,20511,MT,Mato Grosso,Centro-Oeste
+51,14 a 17,2018,2,17477,MT,Mato Grosso,Centro-Oeste
+51,14 a 17,2018,3,25817,MT,Mato Grosso,Centro-Oeste
+51,14 a 17,2018,4,20172,MT,Mato Grosso,Centro-Oeste
+51,14 a 17,2019,1,12503,MT,Mato Grosso,Centro-Oeste
+51,14 a 17,2019,2,20759,MT,Mato Grosso,Centro-Oeste
+51,14 a 17,2019,3,26299,MT,Mato Grosso,Centro-Oeste
+51,14 a 17,2019,4,27933,MT,Mato Grosso,Centro-Oeste
+51,5 a 13,2018,1,6075,MT,Mato Grosso,Centro-Oeste
+51,5 a 13,2018,2,3733,MT,Mato Grosso,Centro-Oeste
+51,5 a 13,2018,3,5809,MT,Mato Grosso,Centro-Oeste
+51,5 a 13,2018,4,4501,MT,Mato Grosso,Centro-Oeste
+51,5 a 13,2019,1,6923,MT,Mato Grosso,Centro-Oeste
+51,5 a 13,2019,2,4719,MT,Mato Grosso,Centro-Oeste
+51,5 a 13,2019,3,7411,MT,Mato Grosso,Centro-Oeste
+51,5 a 13,2019,4,6965,MT,Mato Grosso,Centro-Oeste
+52,14 a 17,2018,1,65605,GO,Goiás,Centro-Oeste
+52,14 a 17,2018,2,27636,GO,Goiás,Centro-Oeste
+52,14 a 17,2018,3,45164,GO,Goiás,Centro-Oeste
+52,14 a 17,2018,4,33347,GO,Goiás,Centro-Oeste
+52,14 a 17,2019,1,39778,GO,Goiás,Centro-Oeste
+52,14 a 17,2019,2,24890,GO,Goiás,Centro-Oeste
+52,14 a 17,2019,3,32841,GO,Goiás,Centro-Oeste
+52,14 a 17,2019,4,31597,GO,Goiás,Centro-Oeste
+52,5 a 13,2018,1,9196,GO,Goiás,Centro-Oeste
+52,5 a 13,2018,2,8683,GO,Goiás,Centro-Oeste
+52,5 a 13,2018,3,5890,GO,Goiás,Centro-Oeste
+52,5 a 13,2018,4,8128,GO,Goiás,Centro-Oeste
+52,5 a 13,2019,1,19401,GO,Goiás,Centro-Oeste
+52,5 a 13,2019,2,13144,GO,Goiás,Centro-Oeste
+52,5 a 13,2019,3,3114,GO,Goiás,Centro-Oeste
+52,5 a 13,2019,4,5038,GO,Goiás,Centro-Oeste
+53,14 a 17,2018,1,12535,DF,Distrito Federal,Centro-Oeste
+53,14 a 17,2018,2,14456,DF,Distrito Federal,Centro-Oeste
+53,14 a 17,2018,3,11868,DF,Distrito Federal,Centro-Oeste
+53,14 a 17,2018,4,5265,DF,Distrito Federal,Centro-Oeste
+53,14 a 17,2019,1,8540,DF,Distrito Federal,Centro-Oeste
+53,14 a 17,2019,2,10751,DF,Distrito Federal,Centro-Oeste
+53,14 a 17,2019,3,7789,DF,Distrito Federal,Centro-Oeste
+53,14 a 17,2019,4,16709,DF,Distrito Federal,Centro-Oeste
+53,5 a 13,2018,1,4245,DF,Distrito Federal,Centro-Oeste
+53,5 a 13,2018,2,4092,DF,Distrito Federal,Centro-Oeste
+53,5 a 13,2018,3,2526,DF,Distrito Federal,Centro-Oeste
+53,5 a 13,2018,4,7175,DF,Distrito Federal,Centro-Oeste
+53,5 a 13,2019,1,1558,DF,Distrito Federal,Centro-Oeste
+53,5 a 13,2019,2,2572,DF,Distrito Federal,Centro-Oeste
+53,5 a 13,2019,3,1634,DF,Distrito Federal,Centro-Oeste
+53,5 a 13,2019,4,4207,DF,Distrito Federal,Centro-Oeste
