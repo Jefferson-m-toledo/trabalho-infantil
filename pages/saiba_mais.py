@@ -27,9 +27,9 @@ grid = html.Div(
                         Para cada região selecionada serão apresentados Dashboards com detalhes e a possibilidade
                         do filtro das informações por estado de interesse em cada região.''']),
                     html.P([
-                        html.B('Gênero e tipo de trabalho: '),
+                        html.B('Sexo e tipo de trabalho: '),
                         '''O módulo será composto por Dashboards dos dados de trabalho
-                        infantil a partir de um recorte de gênero e tipo de trabalho no qual também será possível
+                        infantil a partir de um recorte de sexo e tipo de trabalho no qual também será possível
                         filtrar as informações por região.''']),
                     html.P([
                         html.B('Comparação entre períodos: '),

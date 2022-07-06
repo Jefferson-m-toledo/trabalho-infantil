@@ -23,7 +23,7 @@ df_faixa_etaria_atividade = pd.read_csv('./dados_tratados/trab_infantil_sexo_ida
 # Cria datafame a partir do CSV apenas com os dados de menores de idade (Idade <= 17)
 dados_idade = df_idade_atividade.loc[df_idade_atividade.Idade <= 17, ['UF', 'Estado', 'AtividadeEconomica', 'Idade', 'Trabalhadores', 'Populacao']]
 
-#Dropdown Gênero
+#Dropdown sexo
 genero = ["Todos", "Feminino", "Masculino"]
 
 # criando um grid
@@ -32,7 +32,7 @@ grid = html.Div(
         html.Div(
             [
                 html.Div([
-                    html.H5('Gênero',
+                    html.H5('Sexo',
                             style={'margin-bottom': '10px', 'color': 'white', 'textAlign': 'center'}),
                     dbc.Row([
                         dbc.Col([
@@ -92,12 +92,12 @@ layout = html.Div(
             ]),
             dbc.Row([
                 dbc.Col([
-                            html.Div('Selecione o gênero', className='fix_label'),
+                            html.Div('Selecione o sexo', className='fix_label'),
                             dcc.Dropdown(id='genero_dropdown',
                                          multi=False,
                                          searchable=True,
                                          value='F',
-                                         placeholder='Selecione o gênero',
+                                         placeholder='Selecione o sexo',
                                          options=[{'label': 'Feminino', 'value': 'F'},
                                                   {'label': 'Masculino', 'value': 'M'}], className='dcc_compon'),
                         #html.H5('Estado: ' + (dados_idade['Estado'].loc[dados_idade.Estado == 'estado_dropdown'].unique())),
@@ -192,7 +192,7 @@ def update_output_div(estado_dropdown):
      ]
 
 
-#Callback Grupo atividade (Agrícoloa / Não Agrícola) POR GÊNERO
+#Callback Grupo atividade (Agrícoloa / Não Agrícola) POR SEXO
 @callback(
     Output('genero_trabalho','children'),
     Input('estado_dropdown','value'),
@@ -228,7 +228,7 @@ def update_output_div(estado_dropdown, genero_dropdown):
 
      ]
 
-# #Callback grupo atividade POR GÊNERO
+# #Callback grupo atividade POR SEXO
 @callback(
     Output('genero_grupo','children'),
     Input('estado_dropdown','value'),
