@@ -6,14 +6,10 @@ app = Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=[db
 server = app.server
 app.title = "Mapa do Trabalho Infantil"
 
-
-
-
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
 ])
-
 
 @callback(Output('page-content', 'children'),
           Input('url', 'pathname'))
