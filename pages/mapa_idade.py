@@ -72,6 +72,7 @@ layout = html.Div(
                 grid
             ]
         ),
+        html.Br(),
         dbc.Container([
             dbc.Row([
                 dbc.Col([
