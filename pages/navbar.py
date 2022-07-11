@@ -5,10 +5,16 @@ navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Início", href="index"), id="index-link"),
         dbc.NavItem(dbc.NavLink("Saiba Mais", href="saiba_mais"), id="saiba_mais-link"),
-        dbc.NavItem(dbc.NavLink("Mapa Interativo", href="mapa_inte"), id="mapa_inte-link"),
-        dbc.NavItem(dbc.NavLink("Análise por Idade", href="mapa_idade"), id="mapa-idade-link"),
-        dbc.NavItem(dbc.NavLink("Sexo e Tipo de Trabalho", href="mapa_genero"), id="mapa-genero-link"),
-        dbc.NavItem(dbc.NavLink("Comparação entre Períodos", href="mapa_periodo"), id="mapa-periodo-link"),
+        dbc.DropdownMenu(
+            [
+                dbc.DropdownMenuItem("Mapa Interativo", href="mapa_inte", id="mapa_inte-link"),
+                dbc.DropdownMenuItem("Análise por Idade", href="mapa_idade", id="mapa-idade-link"),
+                dbc.DropdownMenuItem("Sexo e Tipo de Trabalho", href="mapa_genero", id="mapa-genero-link"),
+                dbc.DropdownMenuItem("Comparação entre Períodos", href="mapa_periodo", id="mapa-periodo-link"),
+            ],
+            label="Mapas e Gráficos",
+            nav=True,
+        ),
     ],
     brand="Mapa do Trabalho Infantil",
     brand_href="index",
