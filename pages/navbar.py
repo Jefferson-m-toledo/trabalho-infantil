@@ -12,7 +12,7 @@ navbar = dbc.NavbarSimple(
                 dbc.DropdownMenuItem("Sexo e Tipo de Trabalho", href="mapa_genero", id="mapa-genero-link"),
                 dbc.DropdownMenuItem("Comparação entre Períodos", href="mapa_periodo", id="mapa-periodo-link"),
             ],
-            label="Mapas e Gráficos",
+            label="Dados",
             nav=True,
         ),
     ],
